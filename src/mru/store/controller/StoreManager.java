@@ -20,12 +20,29 @@ public class StoreManager {
 	public StoreManager() {
 		toy = new ArrayList<>();
 		menu = new AppMenu();
+		menu.welcomeMessage();
 		menuOptions();
 		//
 	}
 	
 	public void menuOptions() {
-		//USE SWITCH CASES
+		boolean flag = true;
+		while(flag){
+			int choice = menu.showMainMenu();
+			switch (choice) {
+			case 1:
+				menu.searchMenu();
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				saveExit();
+				flag = false;
+				break;
+		}
+		}
 	}
 	
 	
@@ -47,6 +64,7 @@ public class StoreManager {
 		catch (FileNotFoundException c) {
 			System.out.println("File Not Found");	
 		}
+		menu.saveMessage();
 	}
 	
 	

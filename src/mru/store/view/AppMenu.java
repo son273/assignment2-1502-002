@@ -9,11 +9,13 @@ public class AppMenu {
 	public AppMenu() {
 		input = new Scanner(System.in);
 	}
-
-	public int showMainMenu() {
+	public void welcomeMessage() {
 		System.out.println("***********************************************");
 		System.out.println("* WELCOME TO TOYSTORE COMPANY *");
 		System.out.println("***********************************************\n");
+	}
+
+	public int showMainMenu() {
 		System.out.println("How May We Help You?\n");
 		System.out.println("\t (1) Search Inventory and Purchase Toy");
 		System.out.println("\t (2) Add New Toy");

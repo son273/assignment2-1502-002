@@ -89,6 +89,13 @@ public class BoardGames extends Toys{
 	public String getDesigners() {
 		return designers;
 	}
+
+
+	@Override
+	public String format() {
+		return serialNum+";"+name+";"+brand+";"+price;
+	}
+	
 	
 
 }

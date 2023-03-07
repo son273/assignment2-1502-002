@@ -23,10 +23,9 @@ public abstract class Toys {
 	public abstract void setAgeAppropriate(int minAge);
 	public abstract int getAgeAppropriate();
 
+	public abstract String format();
 	
-	public String format() {
-		return "name + brand + Price";
-	}
+	
 	
 
 	

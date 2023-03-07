@@ -20,6 +20,7 @@ public class StoreManager {
 	public StoreManager() {
 		toy = new ArrayList<>();
 		menu = new AppMenu();
+		loadData();
 		menu.welcomeMessage();
 		menuOptions();
 		//
@@ -31,24 +32,62 @@ public class StoreManager {
 			int choice = menu.showMainMenu();
 			switch (choice) {
 			case 1:
-				menu.searchMenu();
+				findAndPurchase();
 				break;
 			case 2:
+				addToy();
 				break;
 			case 3:
+				removeToy();
 				break;
 			case 4:
 				saveExit();
 				flag = false;
 				break;
+			}
 		}
+	}	
+	
+	
+	
+	
+	private void findAndPurchase() {
+		int choice = menu.searchMenu();
+		//use case to
+		switch(choice) {
+		case 1:
+			//prompt enter serial
+			//use array list to search for serial num matching it
+			break;
+		case 2:
+			//prompt enter name
+			//use array list to search for name matching it
+			break;
+		case 3:
+			//prompt enter type
+			//use array list to search for type matching it
+			//if item is instanceof typeOfToy(animals, boardGames, etc) then print out 
+			break;
+		case 4:
+			//back to main menu
+			break;
+			
 		}
+		
 	}
 	
+	private void addToy() {
+		//prompt everything
+		
+	}
 	
+	private void removeToy() {
+		//prompt serial num
+	}
 	
-	
-	
+	private void gift() {
+		
+	}
 	
 	
 	private void saveExit(){//NOT FINISHED

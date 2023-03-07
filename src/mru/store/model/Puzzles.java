@@ -82,4 +82,12 @@ public class Puzzles extends Toys{
 		return type;
 	}
 
+
+
+	@Override
+	public String format() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

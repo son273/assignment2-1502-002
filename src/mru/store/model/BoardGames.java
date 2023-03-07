@@ -7,7 +7,8 @@ public class BoardGames extends Toys{
 	private int price;
 	private int stockCount;
 	private int minAge;
-	private int numOfPlayers;
+	private int minNumOfPlayers;
+	private int maxNumOfPlayers;
 	private String designers; 
 	
 
@@ -74,12 +75,20 @@ public class BoardGames extends Toys{
 		
 	}
 	
-	public void setNumOfPlayers(int numOfPlayers) {
-		this.numOfPlayers = numOfPlayers;
+	public void setMinNumOfPlayers(int minNumOfPlayers) {
+		this.minNumOfPlayers = minNumOfPlayers;
 	}
 	
-	public int getNumOfPlayers() {
-		return numOfPlayers;
+	public int getMinNumOfPlayers() {
+		return minNumOfPlayers;
+	}
+	
+	public void setMaxNumOfPlayers(int maxNumOfPlayers) {
+		this.maxNumOfPlayers = maxNumOfPlayers;
+	}
+	
+	public int getMaxNumOfPlayers() {
+		return maxNumOfPlayers;
 	}
 	
 	public void setDesigners(String designers) {

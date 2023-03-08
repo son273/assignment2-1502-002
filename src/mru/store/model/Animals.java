@@ -1,6 +1,6 @@
 package mru.store.model;
 
-public abstract class Animals extends Toys {
+public class Animals extends Toys {
 
 	private int serialNum;
 	private String name;
@@ -10,13 +10,16 @@ public abstract class Animals extends Toys {
 	private int minAge;
 	private String material;
 	private String size;
-
-	public int getSerialNum() {
-		return serialNum;
+	
+	@Override
+	public void setSerialNumber(int serialNum) {
+		this.serialNum = serialNum;
+		
 	}
 
-	public void setSerialNum(int serialNum) {
-		this.serialNum = serialNum;
+	@Override
+	public int getSerialNumber() {
+		return serialNum;
 	}
 
 	public String getName() {
@@ -42,22 +45,29 @@ public abstract class Animals extends Toys {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
 
-	public int getStockCount() {
-		return stockCount;
+	@Override
+	public void setAvalibleCount(int stockCount) {
+		this.stockCount = stockCount;		
 	}
 
-	public void setStockCount(int stockCount) {
-		this.stockCount = stockCount;
+	@Override
+	public int getAvalibleCount() {
+		return stockCount;	
 	}
 
-	public int getMinAge() {
-		return minAge;
-	}
 
-	public void setMinAge(int minAge) {
+	@Override
+	public void setAgeAppropriate(int minAge) {
 		this.minAge = minAge;
 	}
+
+	@Override
+	public int getAgeAppropriate() {
+		return minAge;
+	}
+	
 
 	public String getMaterial() {
 		return material;
@@ -80,5 +90,9 @@ public abstract class Animals extends Toys {
 		return serialNum + ";" + name + ";" + brand + ";" + price + ";" + stockCount + ";" + minAge + ";" + material
 				+ ";" + size;
 	}
+
+
+
+	
 
 }

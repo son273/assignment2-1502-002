@@ -6,6 +6,10 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import mru.store.model.Animals;
+import mru.store.model.BoardGames;
+import mru.store.model.Figures;
+import mru.store.model.Puzzles;
 import mru.store.model.Toys;
 import mru.store.view.AppMenu;
 //Manages and runs the application
@@ -111,6 +115,12 @@ public class StoreManager {
 		File txt = new File(FILE_PATH); // opens file
 		String currentLine;
 		String[] splittedLine;
+		Toys boardGames = new BoardGames();
+		Toys puzzles = new Puzzles();
+		Toys animal = new Animals();
+		Toys figures = new Figures();
+		
+	
 
 		if (txt.exists()) { // checks if file exists
 			//TRY HERE
@@ -121,9 +131,26 @@ public class StoreManager {
 
 				currentLine = fileReader.nextLine(); // reads current line
 				splittedLine = currentLine.split(";"); // splits line at ,
-					String name = splittedLine[0]; //
-					int balance = Integer.parseInt(splittedLine[1]);//
-					int wins = Integer.parseInt(splittedLine[2]); //
+				String serialNum = splittedLine[0];
+				char firstNum = serialNum.charAt(0);
+				int firstNumber = Character.getNumericValue(firstNum);
+				if (firstNumber <= 0) {
+					
+				}
+				else if(firstNumber <=2){
+					
+				}
+				else if(firstNumber <=4) {
+					
+				}
+				else if(firstNumber <=7) {
+					
+				}
+				//Use nested if else
+					// Each if is the serialnum
+						//inside it adds to the object and casts it
+				//add to toys
+				toy.add(null);
 				}
 			fileReader.close();
 			}

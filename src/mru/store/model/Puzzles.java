@@ -96,7 +96,7 @@ public class Puzzles extends Toys{
 
 	@Override
 	public String format() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

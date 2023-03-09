@@ -56,20 +56,18 @@ public class StoreManager {
 		// use case to
 		switch (choice) {
 		case 1:
+			//Here we just check if the item exist or not
+			//send 
 			long serialNum = menu.promptSerialNum();	
 			boolean serialNumExists = false;
+			long serialNumber = 0;
 			
 			for (Toys item : toy)
 				if(item.getSerialNumber() == serialNum) {
-					//send item to app menu depending type
-					//
-					
+					serialNumExists = true;
+					serialNumber = item.getSerialNumber();
 				}
-				else{
-					menu.doesntExist();
-					break;
-				}
-
+			searchNumResults(serialNumExists, serialNumber);
 			break;
 		case 2:
 			// prompt enter name
@@ -94,6 +92,18 @@ public class StoreManager {
 		}
 
 	}
+	
+	
+	private void searchNumResults(Boolean found, long serialNum) {
+		if (found = false) {
+			menu.doesntExist();
+		}
+		else {
+			
+		}
+	}
+	
+	
 
 	private void addToy() {
 		// prompt for serial number

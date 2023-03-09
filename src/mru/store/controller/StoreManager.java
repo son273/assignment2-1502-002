@@ -130,22 +130,24 @@ public class StoreManager {
 				String serialNum = splittedLine[0];
 				char firstNum = serialNum.charAt(0);
 				int firstNumber = Character.getNumericValue(firstNum);
-				if (firstNumber <= 9) {
-					Toys boardGames = new BoardGames(Integer.parseInt(splittedLine[0]), splittedLine[1], splittedLine[2], Integer.parseInt(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), Integer.parseInt(splittedLine[6]), Integer.parseInt(splittedLine[7]), splittedLine[8]);
-					toy.add(boardGames);
-				}
-				else if(firstNumber <=6){
-					Toys puzzles = new Puzzles(Integer.parseInt(splittedLine[0]), splittedLine[1], splittedLine[2], Integer.parseInt(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6]);
-					toy.add(puzzles);
-				}
-				else if(firstNumber <= 3) {
-					Toys animal = new Animals(Integer.parseInt(splittedLine[0]), splittedLine[1], splittedLine[2], Integer.parseInt(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7]);
-					toy.add(animal);
+				if (firstNumber <= 1) {
+					Toys figures = new Figures(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2], Float.parseFloat(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6]);
+					toy.add(figures);
 					
 				}
-				else if(firstNumber <=1) {		
-					Toys figures = new Figures(Integer.parseInt(splittedLine[0]), splittedLine[1], splittedLine[2], Integer.parseInt(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6]);
-					toy.add(figures);
+				else if(firstNumber <=3){
+					Toys animal = new Animals(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2], Float.parseFloat(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7]);
+					toy.add(animal);
+				}
+				else if(firstNumber <= 6) {
+					Toys puzzles = new Puzzles(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2], Float.parseFloat(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6]);
+					toy.add(puzzles);
+					
+				}
+				else if(firstNumber <=9) {	
+					String[] numPlayers = splittedLine[6].split("-");
+					Toys boardGames = new BoardGames(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2], Float.parseFloat(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), Integer.parseInt(numPlayers[0]), Integer.parseInt(numPlayers[1]), splittedLine[7]);
+					toy.add(boardGames);
 				}
 				//Use nested if else
 					// Each if is the serialnum

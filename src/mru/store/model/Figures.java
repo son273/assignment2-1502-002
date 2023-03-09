@@ -2,15 +2,15 @@ package mru.store.model;
 
 public class Figures extends Toys {
 
-	private int serialNum;
+	private long serialNum;
 	private String name;
 	private String brand;
-	private int price;
+	private float price;
 	private int stockCount;
 	private int minAge;
 	private String classification;
 	
-	public Figures (int serialNum, String name, String brand, int price, int stockCount, int minAge, String classification) {
+	public Figures (long serialNum, String name, String brand, float price, int stockCount, int minAge, String classification) {
 		this.serialNum = serialNum;
 		this.name = name;
 		this.brand = brand;
@@ -21,12 +21,12 @@ public class Figures extends Toys {
 	}
 
 	@Override
-	public void setSerialNumber(int serialNum) {
+	public void setSerialNumber(long serialNum) {
 		this.serialNum = serialNum;
 	}
 
 	@Override
-	public int getSerialNumber() {
+	public long getSerialNumber() {
 		return serialNum;
 	}
 	
@@ -46,11 +46,11 @@ public class Figures extends Toys {
 		this.brand = brand;
 	}
 
-	public int getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 

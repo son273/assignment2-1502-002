@@ -39,7 +39,7 @@ public class AppMenu {
 	}
 
 	public int promptOption() {
-		System.out.println("Enter Option:");
+		System.out.println("Enter Option:\n");
 		int option = input.nextInt();
 		return option;
 	}
@@ -49,9 +49,9 @@ public class AppMenu {
 		input.nextLine();
 	}
 
-	public int promptSerialNum() {
+	public long promptSerialNum() {
 		System.out.println("Enter Serial Number: ");
-		int serialNum = input.nextInt();
+		long serialNum = input.nextLong();
 		return serialNum;
 	}
 
@@ -149,25 +149,25 @@ public class AppMenu {
 	}
 
 	public void validateNumNotValid() {
-		System.out.println("This is Not an Integer Number! Try Again. ");
+		System.out.println("This is Not an Integer Number! Try Again.\n");
 	}
 
 	public void validateOptionNotValid() {
-		System.out.println("This is Not an Valid Option! Try Again. ");
+		System.out.println("This is Not an Valid Option! Try Again.\n");
 	}
 
 	public void validateExistingSN() {
-		System.out.println("A Toy With This Serial Number Already Exists! Try Again. ");
+		System.out.println("A Toy With This Serial Number Already Exists! Try Again.\n");
 
 	}
 
 	public void validateSN() {
-		System.out.println("The Serial Number should only contain Digits! Try Again. ");
+		System.out.println("The Serial Number should only contain Digits! Try Again.\n");
 
 	}
 
 	public void validateSNLength() {
-		System.out.println("The Serial Number's legnth MUST be 10 digits! Try Again. ");
+		System.out.println("The Serial Number's legnth MUST be 10 digits! Try Again.\n");
 
 	}
 

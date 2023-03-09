@@ -115,10 +115,6 @@ public class StoreManager {
 		File txt = new File(FILE_PATH); // opens file
 		String currentLine;
 		String[] splittedLine;
-		Toys boardGames = new BoardGames();
-		Toys puzzles = new Puzzles();
-		Toys animal = new Animals();
-		Toys figures = new Figures();
 		
 	
 
@@ -134,23 +130,27 @@ public class StoreManager {
 				String serialNum = splittedLine[0];
 				char firstNum = serialNum.charAt(0);
 				int firstNumber = Character.getNumericValue(firstNum);
-				if (firstNumber <= 0) {
+				if (firstNumber <= 9) {
+					Toys boardGames = new BoardGames(Integer.parseInt(splittedLine[0]), splittedLine[1], splittedLine[2], Integer.parseInt(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), Integer.parseInt(splittedLine[6]), Integer.parseInt(splittedLine[7]), splittedLine[8]);
+					toy.add(boardGames);
+				}
+				else if(firstNumber <=6){
+					Toys puzzles = new Puzzles(Integer.parseInt(splittedLine[0]), splittedLine[1], splittedLine[2], Integer.parseInt(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6]);
+					toy.add(puzzles);
+				}
+				else if(firstNumber <= 3) {
+					Toys animal = new Animals(Integer.parseInt(splittedLine[0]), splittedLine[1], splittedLine[2], Integer.parseInt(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7]);
+					toy.add(animal);
 					
 				}
-				else if(firstNumber <=2){
-					
-				}
-				else if(firstNumber <=4) {
-					
-				}
-				else if(firstNumber <=7) {
-					
+				else if(firstNumber <=1) {		
+					Toys figures = new Figures(Integer.parseInt(splittedLine[0]), splittedLine[1], splittedLine[2], Integer.parseInt(splittedLine[3]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[5]), splittedLine[6]);
+					toy.add(figures);
 				}
 				//Use nested if else
 					// Each if is the serialnum
 						//inside it adds to the object and casts it
 				//add to toys
-				toy.add(null);
 				}
 			fileReader.close();
 			}

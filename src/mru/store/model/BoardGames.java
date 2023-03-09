@@ -11,6 +11,19 @@ public class BoardGames extends Toys{
 	private int maxNumOfPlayers;
 	private String designers; 
 	
+	public BoardGames(int serialNum, String name, String brand, int price, int stockCount, int minAge, int minNumOfPlayers, int maxNumOfPlayers, String designers) {
+		this.serialNum = serialNum;
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.stockCount = stockCount;
+		this.minAge = minAge;
+		this.minNumOfPlayers = minNumOfPlayers;
+		this.maxNumOfPlayers = maxNumOfPlayers;
+		this.designers = designers;
+	}
+
+	
 
 	@Override
 	public void setSerialNumber(int serialNum) {

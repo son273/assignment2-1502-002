@@ -9,6 +9,16 @@ public class Puzzles extends Toys{
 	private int minAge;
 	private String type; 
 	
+	public Puzzles(int serialNum, String name, String brand, int price, int stockCount, int minAge, String type) {
+		this.serialNum = serialNum;
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.stockCount = stockCount;
+		this.minAge = minAge;
+		this.type = type;
+	}
+	
 
 	@Override
 	public void setSerialNumber(int serialNum) {

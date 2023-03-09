@@ -11,6 +11,18 @@ public class Animals extends Toys {
 	private String material;
 	private String size;
 	
+	public Animals(int serialNum, String name, String brand, int price, int stockCount, int minAge, String material, String size ) {
+		this.serialNum = serialNum;
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.stockCount = stockCount;
+		this.minAge = minAge;
+		this.material = material;
+		this.size = size;
+	}
+	
+	
 	@Override
 	public void setSerialNumber(int serialNum) {
 		this.serialNum = serialNum;

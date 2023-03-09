@@ -9,6 +9,16 @@ public class Figures extends Toys {
 	private int stockCount;
 	private int minAge;
 	private String classification;
+	
+	public Figures (int serialNum, String name, String brand, int price, int stockCount, int minAge, String classification) {
+		this.serialNum = serialNum;
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.stockCount = stockCount;
+		this.minAge = minAge;
+		this.classification = classification;
+	}
 
 	@Override
 	public void setSerialNumber(int serialNum) {

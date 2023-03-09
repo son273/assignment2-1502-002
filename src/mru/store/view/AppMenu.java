@@ -178,6 +178,9 @@ public class AppMenu {
 		System.out.println("The Serial Number's legnth MUST be 10 digits! Try Again.\n");
 
 	}
+	public void doesntExist() {
+		System.out.println("Item does not exist");
+	}
 
 
 

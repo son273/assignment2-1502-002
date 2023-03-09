@@ -25,7 +25,6 @@ public class StoreManager {
 		toy = new ArrayList<>();
 		menu = new AppMenu();
 		loadData();
-		menu.welcomeMessage();
 		menuOptions();
 		//
 	}
@@ -57,17 +56,37 @@ public class StoreManager {
 		// use case to
 		switch (choice) {
 		case 1:
+<<<<<<< HEAD
 			// prompt enter serial
 			// use array list to search for serial num matching it
+=======
+			long serialNum = menu.promptSerialNum();
+			
+			
+			//use array list to search for serial num matching it
+>>>>>>> branch 'master' of https://github.com/son273/assignment2-1502-002.git
 			break;
 		case 2:
+<<<<<<< HEAD
 			// prompt enter name
 			// use array list to search for name matching it
+=======
+			String name = menu.prompBrandName();
+			//prompt enter name
+			//use array list to search for name matching it
+>>>>>>> branch 'master' of https://github.com/son273/assignment2-1502-002.git
 			break;
 		case 3:
+<<<<<<< HEAD
 			// prompt enter type
 			// use array list to search for type matching it
 			// if item is instanceof typeOfToy(animals, boardGames, etc) then print out
+=======
+			String type = menu.promptType();
+			//prompt enter type
+			//use array list to search for type matching it
+			//if item is instanceof typeOfToy(animals, boardGames, etc) then print out 
+>>>>>>> branch 'master' of https://github.com/son273/assignment2-1502-002.git
 			break;
 		case 4:
 			// back to main menu

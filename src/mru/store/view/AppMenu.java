@@ -1,6 +1,9 @@
 package mru.store.view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import mru.store.model.Toys;
 
 public class AppMenu {
 
@@ -13,7 +16,7 @@ public class AppMenu {
 
 	public void welcomeMessage() {
 		System.out.println("***********************************************");
-		System.out.println("* WELCOME TO TOYSTORE COMPANY *");
+		System.out.println("        * WELCOME TO TOYSTORE COMPANY         *");
 		System.out.println("***********************************************\n");
 	}
 
@@ -134,6 +137,42 @@ public class AppMenu {
 		String designerName = input.next();
 		return designerName;
 	}
+	
+	
+	public void nameSearchResults(ArrayList<Toys> nameArray, int arrayCount) {
+		int count = 0;
+		int listNum = 1;
+		System.out.println("Here are the search results:\n");
+
+		while(arrayCount >= count) {
+			for (Toys item: nameArray) {
+				System.out.println(" ("+listNum+") "+item.toString());
+				listNum++;
+				count++;
+			}
+			
+		}
+	}
+	
+	
+	public void serialSearchResults(String itemString) {
+		System.out.println("Here are the search results:\n");
+		System.out.println(" (1) "+ itemString);
+		System.out.println(" (2) Back to Search Menu\n");
+		
+	}
+	
+	public int promptPurchase() {
+		System.out.println("Enter Option Number to purchase: ");
+		int option = input.nextInt();
+		return option;
+	}
+	public void purchaseSuccessful() {
+		System.out.println("The Transaction Successfully Terminated!\n");
+	}
+	public void noStock() {
+		System.out.println("Sorry, the product you wanted to purchase is out of Stock");
+	}
 
 	public void toyAddedMessage() {
 		System.out.println("New Toy Added!\n");
@@ -180,7 +219,7 @@ public class AppMenu {
 	}
 
 	public void doesntExist() {
-		System.out.println("Item does not exist");
+		System.out.println("Item does not exist\n");
 	}
 
 }

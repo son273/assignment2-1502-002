@@ -24,6 +24,7 @@ public abstract class Toys {
 	public abstract int getAgeAppropriate();
 
 	public abstract String format();
+	public abstract String toString();
 	
 	
 	

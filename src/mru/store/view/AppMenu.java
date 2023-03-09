@@ -8,6 +8,7 @@ public class AppMenu {
 
 	public AppMenu() {
 		input = new Scanner(System.in);
+		welcomeMessage();
 	}
 
 	public void welcomeMessage() {
@@ -47,6 +48,12 @@ public class AppMenu {
 	public void promptEnterKey() {
 		System.out.println("Press Enter to Continue...");
 		input.nextLine();
+	}
+	
+	public String promptType() {
+		System.out.println("Enter Type: ");
+		String toyType = input.next().trim();
+		return toyType;
 	}
 
 	public int promptSerialNum() {
@@ -140,6 +147,7 @@ public class AppMenu {
 	public void toyRemovedMessage() {
 		System.out.println("Item Removed!");
 	}
+	
 
 	public void saveMessage() {
 		System.out.println("Saving Data Into Database\n");
@@ -170,5 +178,7 @@ public class AppMenu {
 		System.out.println("The Serial Number's legnth MUST be 10 digits! Try Again. ");
 
 	}
+
+
 
 }

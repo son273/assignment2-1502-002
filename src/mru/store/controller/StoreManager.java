@@ -25,7 +25,6 @@ public class StoreManager {
 		toy = new ArrayList<>();
 		menu = new AppMenu();
 		loadData();
-		menu.welcomeMessage();
 		menuOptions();
 		//
 	}
@@ -60,14 +59,18 @@ public class StoreManager {
 		//use case to
 		switch(choice) {
 		case 1:
-			//prompt enter serial
+			long serialNum = menu.promptSerialNum();
+			
+			
 			//use array list to search for serial num matching it
 			break;
 		case 2:
+			String name = menu.prompBrandName();
 			//prompt enter name
 			//use array list to search for name matching it
 			break;
 		case 3:
+			String type = menu.promptType();
 			//prompt enter type
 			//use array list to search for type matching it
 			//if item is instanceof typeOfToy(animals, boardGames, etc) then print out 

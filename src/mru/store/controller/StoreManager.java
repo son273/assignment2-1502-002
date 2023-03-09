@@ -54,100 +54,104 @@ public class StoreManager {
 
 	private void findAndPurchase() {
 		boolean flag = true;
+		// use case to
 		while (flag) {
-			int choice = menu.searchMenu();
+		int choice = menu.searchMenu();
 			switch (choice) {
 			case 1:
 				serialSearch();
 				break;
-
+				
 			case 2:
 				nameSearch();
 				break;
 			case 3:
-
+				
 				String type = menu.promptType();
-
+				
 			case 4:
 				flag = false;
 				break;
-
+	
 			}
 		}
 
 	}
-
 	public void serialSearch() {
 		long serialNum = menu.promptSerialNum();
 		boolean found = false;
-
+		
 		for (Toys item : toy)
-			if (item.getSerialNumber() == serialNum && item.getAvalibleCount() > 0) {
+			if(item.getSerialNumber() == serialNum && item.getAvalibleCount() > 0) {
 				found = true;
 				menu.serialSearchResults(item.toString());
 				int choice = menu.promptPurchase();
-				if (choice == 1) {
+				if(choice == 1) {
 					int stock = item.getAvalibleCount();
 					stock -= 1;
 					item.setAvalibleCount(stock);
 					menu.purchaseSuccessful();
-
+					
 				}
-
 				else if (choice == 2) {
 					break;
-				} else {
+				}
+				else {
 					menu.validateOptionNotValid();
 				}
 				break;
-			} else if (item.getSerialNumber() == serialNum && item.getAvalibleCount() == 0) {
+			}
+			else if(item.getSerialNumber() == serialNum && item.getAvalibleCount() == 0) {
 				menu.noStock();
 				break;
 			}
 		if (found != true) {
-
 			menu.doesntExist();
-
-		}
-
+			
+		}	
 	}
-
+	
+	
+	
+	
 	private void nameSearch() {
 		boolean found = false;
-		String name = menu.prompToyName().trim().toLowerCase();
-		;
+		String name = menu.prompToyName().trim().toLowerCase();;
 		ArrayList<Toys> nameArray = new ArrayList<>();
 		int count = 0;
-
-		for (Toys item : toy) {
-			if (item.getName().toLowerCase().trim().contains(name) && item.getAvalibleCount() > 0) {
+		
+		for (Toys item: toy) {
+			if(item.getName().toLowerCase().trim().contains(name) && item.getAvalibleCount() > 0) {
 				nameArray.add(item);
 				count++;
 				found = true;
-			} else if (item.getName().toLowerCase().trim().contains(name) && item.getAvalibleCount() == 0) {
+			}
+			else if (item.getName().toLowerCase().trim().contains(name) && item.getAvalibleCount() == 0) {
 				nameArray.remove(item);
 			}
 		}
 		menu.nameSearchResults(nameArray, count);
 
-		// name.trim.tolowercase
-		// make another array list
-		// put everything with the name
-		// item.getName.trim().tolowercase().contains(name)
+		
+		//name.trim.tolowercase
+		//make another array list
+		//put everything with the name 
+			//item.getName.trim().tolowercase().contains(name)
 		//
 		if (found != true) {
 			menu.doesntExist();
-
-		}
+				
+		}	
 	}
-
+	
 	private void typeSearch() {
 		String type = menu.promptType();
-		// prompt enter type
-		// use array list to search for type matching it
-		// if item is instanceof typeOfToy(animals, boardGames, etc) then print out
+		//prompt enter type
+		//use array list to search for type matching it
+		//if item is instanceof typeOfToy(animals, boardGames, etc) then print out 
 
 	}
+	
 
 	private void addToy() {
 		// prompt for serial number

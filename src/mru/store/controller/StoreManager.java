@@ -120,9 +120,22 @@ public class StoreManager {
 		int availability = menu.promptAvailability();
 		int age = menu.promptAge();
 		String serialNumString = Long.toString(serialNum);
-		char 
-		if (serialNumString.getNumericValue().charAt(0) <= 1);
-		
+		char firstVal = serialNumString.charAt(0);
+		int firstNum = Character.getNumericValue(firstVal);
+
+		if (firstNum <= 1) {
+			String figureClass = menu.promptFigureClass();
+		} else if (firstNum <= 3) {
+			String material = menu.promptAnimalMaterial();
+			String size = menu.promptAnimalSize();
+		} else if (firstNum <= 6) {
+			String puzzleType = menu.promptPuzzleType();
+		} else if (firstNum <= 9) {
+			int minPlayers = menu.promptBoardGameMinPlayers();
+			int maxPlayers = menu.promptBoardGameMaxPlayers();
+			String designers = menu.promptBoardGameDesigners();
+		}
+
 	}
 
 	private void removeToy() {

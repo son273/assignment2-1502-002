@@ -96,8 +96,12 @@ public class Puzzles extends Toys{
 
 	@Override
 	public String format() {
-		
-		return null;
+		return serialNum+";"+name+";"+brand+";"+price+";"+stockCount+";"+minAge+";"+type;
+	}
+	
+	@Override
+	public String toString() {
+		return "Category: Puzzles, "+"Serial Number: "+serialNum+", Name: "+name+", Brand: "+brand+", Price"+price+", Availible Stock: "+stockCount+", Minimum Age: "+minAge+", Type: "+type;
 	}
 
 }

@@ -46,10 +46,11 @@ public class AppMenu {
 	}
 
 	public void promptEnterKey() {
+		Scanner input = new Scanner(System.in);
 		System.out.println("Press Enter to Continue...");
 		input.nextLine();
 	}
-	
+
 	public String promptType() {
 		System.out.println("Enter Type: ");
 		String toyType = input.next().trim();
@@ -135,7 +136,7 @@ public class AppMenu {
 	}
 
 	public void toyAddedMessage() {
-		System.out.println("New Toy Added!");
+		System.out.println("New Toy Added!\n");
 	}
 
 	public char promptRemoval() {
@@ -145,9 +146,8 @@ public class AppMenu {
 	}
 
 	public void toyRemovedMessage() {
-		System.out.println("Item Removed!");
+		System.out.println("Item Removed!\n");
 	}
-	
 
 	public void saveMessage() {
 		System.out.println("Saving Data Into Database\n");
@@ -178,10 +178,9 @@ public class AppMenu {
 		System.out.println("The Serial Number's legnth MUST be 10 digits! Try Again.\n");
 
 	}
+
 	public void doesntExist() {
 		System.out.println("Item does not exist");
 	}
-
-
 
 }

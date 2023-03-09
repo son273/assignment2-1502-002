@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import mru.store.model.Animals;
@@ -56,14 +57,14 @@ public class StoreManager {
 		// use case to
 		switch (choice) {
 		case 1:
-			//Here we just check if the item exist or not
-			//send 
-			long serialNum = menu.promptSerialNum();	
+			// Here we just check if the item exist or not
+			// send
+			long serialNum = menu.promptSerialNum();
 			boolean serialNumExists = false;
 			long serialNumber = 0;
-			
+
 			for (Toys item : toy)
-				if(item.getSerialNumber() == serialNum) {
+				if (item.getSerialNumber() == serialNum) {
 					serialNumExists = true;
 					serialNumber = item.getSerialNumber();
 				}
@@ -73,17 +74,17 @@ public class StoreManager {
 			// prompt enter name
 			// use array list to search for name matching it
 			String name = menu.prompBrandName();
-			//prompt enter name
-			//use array list to search for name matching it
+			// prompt enter name
+			// use array list to search for name matching it
 			break;
 		case 3:
 			// prompt enter type
 			// use array list to search for type matching it
 			// if item is instanceof typeOfToy(animals, boardGames, etc) then print out
 			String type = menu.promptType();
-			//prompt enter type
-			//use array list to search for type matching it
-			//if item is instanceof typeOfToy(animals, boardGames, etc) then print out 
+			// prompt enter type
+			// use array list to search for type matching it
+			// if item is instanceof typeOfToy(animals, boardGames, etc) then print out
 			break;
 		case 4:
 			// back to main menu
@@ -92,22 +93,18 @@ public class StoreManager {
 		}
 
 	}
-	
-	
+
 	private void searchNumResults(Boolean found, long serialNum) {
 		if (found = false) {
 			menu.doesntExist();
-		}
-		else {
-			
+		} else {
+
 		}
 	}
-	
-	
 
 	private void addToy() {
 		// prompt for serial number
-		long serialNum = menu.promptSerialNum();
+		long serialNum = serialNum();
 		boolean serialNumExists = false;
 		while (true) {
 			for (Toys item : toy) {
@@ -134,17 +131,45 @@ public class StoreManager {
 
 		if (firstNum <= 1) {
 			String figureClass = menu.promptFigureClass();
+			Toys newFigures = new Figures(serialNum, toyName, toyBrand, toyPrice, availability, age, figureClass);
+			toy.add(newFigures);
 		} else if (firstNum <= 3) {
 			String material = menu.promptAnimalMaterial();
 			String size = menu.promptAnimalSize();
+			Toys newAnimals = new Animals(serialNum, toyName, toyBrand, toyPrice, availability, age, material, size);
+			toy.add(newAnimals);
 		} else if (firstNum <= 6) {
 			String puzzleType = menu.promptPuzzleType();
+			Toys newPuzzles = new Puzzles(serialNum, toyName, toyBrand, toyPrice, availability, age, puzzleType);
+			toy.add(newPuzzles);
 		} else if (firstNum <= 9) {
 			int minPlayers = menu.promptBoardGameMinPlayers();
 			int maxPlayers = menu.promptBoardGameMaxPlayers();
 			String designers = menu.promptBoardGameDesigners();
+			Toys newBoardGames = new BoardGames(serialNum, toyName, toyBrand, toyPrice, availability, age, minPlayers,
+					maxPlayers, designers);
+			toy.add(newBoardGames);
 		}
 
+		menu.toyAddedMessage();
+		menu.promptEnterKey();
+	}
+
+	private long serialNum() {
+		long serialNum;
+		do {
+			try {
+				serialNum = menu.promptSerialNum();
+				if ((Long.toString(serialNum)).length() != 10) {
+					menu.validateSNLength();
+				} else {
+					return serialNum;
+				}
+			} catch (InputMismatchException e) {
+				menu.validateSN();
+				menu.promptSerialNum();
+			}
+		} while (true);
 	}
 
 	private void removeToy() {

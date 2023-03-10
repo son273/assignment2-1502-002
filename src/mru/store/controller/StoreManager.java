@@ -116,32 +116,46 @@ public class StoreManager {
 	
 	private void nameSearch() {
 		boolean found = false;
+		boolean enter = false;
 		String name = menu.prompToyName().trim().toLowerCase();;
 		ArrayList<Toys> nameArray = new ArrayList<>();
 		int count = 0;
+		int listSize = 0;
+		
 		
 		for (Toys item: toy) {
 			if(item.getName().toLowerCase().trim().contains(name) && item.getAvalibleCount() > 0) {
 				nameArray.add(item);
 				count++;
 				found = true;
+				listSize = menu.nameSearchResults(nameArray, count);
+				
 			}
 			else if (item.getName().toLowerCase().trim().contains(name) && item.getAvalibleCount() == 0) {
 				nameArray.remove(item);
 			}
 		}
-		menu.nameSearchResults(nameArray, count);
-
+		while(enter != true) {
+			int choice = menu.promptPurchase();
+			if (choice == listSize) {
+				break;
+			}
+			else{
+				Toy item = nameArray.get(choice);
+				int stock = item.getAvalibleCount();
+				stock -= 1;
+				item.setAvalibleCount(stock);
+				menu.purchaseSuccessful();
+			}
+			menu.promptEnterKey();
+			enter = true;
+			}
 		
-		//name.trim.tolowercase
-		//make another array list
-		//put everything with the name 
-			//item.getName.trim().tolowercase().contains(name)
-		//
 		if (found != true) {
 			menu.doesntExist();
-				
-		}	
+		}
+		
+		
 	}
 	
 	private void typeSearch() {

@@ -139,19 +139,21 @@ public class AppMenu {
 	}
 	
 	
-	public void nameSearchResults(ArrayList<Toys> nameArray, int arrayCount) {
+	public int nameSearchResults(ArrayList<Toys> nameArray, int arrayCount) {
 		int count = 0;
 		int listNum = 1;
 		System.out.println("Here are the search results:\n");
 
-		while(arrayCount >= count) {
+		while(arrayCount > count) {
 			for (Toys item: nameArray) {
 				System.out.println(" ("+listNum+") "+item.toString());
 				listNum++;
 				count++;
 			}
-			
+			System.out.println(" ("+ listNum+") Back to Search Menu\n");
+		
 		}
+	return listNum;
 	}
 	
 	

@@ -1,6 +1,7 @@
 package mru.store.view;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import mru.store.model.Toys;
@@ -21,24 +22,30 @@ public class AppMenu {
 	}
 
 	public int showMainMenu() {
+		int option = 0;
+
 		System.out.println("How May We Help You?\n");
 		System.out.println("\t (1) Search Inventory and Purchase Toy");
 		System.out.println("\t (2) Add New Toy");
 		System.out.println("\t (3) Remove Existing Toy");
 		System.out.println("\t (4) Save and Exit\n");
 		System.out.println("Enter Option:");
-		int option = input.nextInt();
+		option = input.nextInt();
+		
 		return option;
 	}
 
 	public int searchMenu() {
+		int option = 0;
+	
 		System.out.println("Find Toys With:\n");
 		System.out.println("\t (1) Serial Number (SN)");
 		System.out.println("\t (2) Toy Name");
 		System.out.println("\t (3) Type");
 		System.out.println("\t (4) Back to Main Menu\n");
 		System.out.println("Enter Option:");
-		int option = input.nextInt();
+		option = input.nextInt();
+		
 		return option;
 	}
 
@@ -61,6 +68,7 @@ public class AppMenu {
 	}
 
 	public long promptSerialNum() {
+		input.nextLine();
 		System.out.println("Enter Serial Number: ");
 		long serialNum = input.nextLong();
 		return serialNum;
@@ -165,9 +173,15 @@ public class AppMenu {
 	}
 	
 	public int promptPurchase() {
-		System.out.println("Enter Option Number to purchase: ");
-		int option = input.nextInt();
+		int option = 0;
+			input.nextLine();
+			System.out.println("Enter Option Number to purchase: ");
+			option = input.nextInt();
+			
+		
+		
 		return option;
+		
 	}
 	public void purchaseSuccessful() {
 		System.out.println("The Transaction Successfully Terminated!\n");

@@ -74,9 +74,7 @@ public class StoreManager {
 				nameSearch();
 				break;
 			case 3:
-				
-				String type = menu.promptType();
-				
+				typeSearch();				
 			case 4:
 				flag = false;
 				break;
@@ -145,7 +143,7 @@ public class StoreManager {
 		boolean enter = false;
 		String name = menu.prompToyName().trim().toLowerCase();;
 		ArrayList<Toys> nameArray = new ArrayList<>();
-		int count = 0;
+		int itemCount = 0;
 		int listSize = 0;
 		int choice = 0;
 		
@@ -153,17 +151,22 @@ public class StoreManager {
 		for (Toys item: toy) { //This for loop is responsible for iterating through the list and adding items that contain the users input
 			if(item.getName().toLowerCase().trim().contains(name) && item.getAvalibleCount() > 0) {
 				nameArray.add(item);
-				count++;
+				itemCount++;
 				found = true;	
 			}
-			else if (item.getName().toLowerCase().trim().contains(name) && item.getAvalibleCount() == 0) {
-				nameArray.remove(item);
-			}
 		}
-		listSize = menu.nameSearchResults(nameArray, count);
+		if (found != true) {
+			menu.doesntExist();
+			enter = true;
+			menu.promptEnterKey();
 
-		while(enter != true) {
+		}
+		
+
+		while(enter != true) { // This loops is responsible for dealing with purchase of item and validating proper inputs
+			listSize = menu.nameSearchResults(nameArray, itemCount);
 			try {
+				
 				choice = menu.promptPurchase();
 				choice -= 1;
 				listSize -= 1;
@@ -193,9 +196,6 @@ public class StoreManager {
 		
 		}
 		
-		if (found != true) {
-			menu.doesntExist();
-		}
 		
 		
 	}
@@ -203,30 +203,72 @@ public class StoreManager {
 	private void typeSearch() {
 		String type = menu.promptType().trim().toLowerCase();
 		ArrayList<Toys> nameArray = new ArrayList<>();
+		int listSize = 0;
+		int itemCount = 0;
+		boolean enter = false;
 		for (Toys item : toy) {
 			if (type == "animals" || type == "animal") {
+				if (item instanceof Animals) {
+					if (item.getAvalibleCount() > 0) {
+						nameArray.add(item);
+						itemCount ++;
+					}
+						
+				}
 				//instance of...
 				//show it like in names
 				//
 			}
 			else if(type == "figures" || type == "figure") {
+				if (item instanceof Figures) {
+					if (item.getAvalibleCount() > 0) {
+						nameArray.add(item);
+						itemCount ++;
+					}
+						
+				}
 				
 			}
 			else if (type == "puzzles" || type == "puzzle") {
+				if (item instanceof Puzzles) {
+					if (item.getAvalibleCount() > 0) {
+						nameArray.add(item);
+						itemCount ++;
+					}
+						
+				}
 				
 			}
 			else if (type == "boardgames" || type == "boardgame") {
+				if (item instanceof BoardGames) {
+					if (item.getAvalibleCount() > 0) {
+						nameArray.add(item);
+						itemCount ++;
+					}
+						
+				}
 				
 			}
 			else {
 				menu.validateOptionNotValid();
+				enter = true;
+				menu.promptEnterKey();
 				break;
 			}
+			
+		}
+		while (enter != true) {
+		listSize = menu.nameSearchResults(nameArray, itemCount);
+		try {
+			
+		}
+		catch(InputMismatchException mismatch){
+			menu.validateNumNotValid();
 		}
 		//prompt enter type
 		//use array list to search for type matching it
 		//if item is instanceof typeOfToy(animals, boardGames, etc) then print out 
-
+		}
 	}
 	
 

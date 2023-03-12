@@ -16,7 +16,7 @@ public class AppMenu {
 
 	public void welcomeMessage() {
 		System.out.println("***********************************************");
-		System.out.println("        * WELCOME TO TOYSTORE COMPANY         *");
+		System.out.println("*         WELCOME TO TOYSTORE COMPANY         *");
 		System.out.println("***********************************************\n");
 	}
 
@@ -137,39 +137,39 @@ public class AppMenu {
 		String designerName = input.next();
 		return designerName;
 	}
-	
-	
+
 	public void nameSearchResults(ArrayList<Toys> nameArray, int arrayCount) {
 		int count = 0;
 		int listNum = 1;
 		System.out.println("Here are the search results:\n");
 
-		while(arrayCount >= count) {
-			for (Toys item: nameArray) {
-				System.out.println(" ("+listNum+") "+item.toString());
+		while (arrayCount >= count) {
+			for (Toys item : nameArray) {
+				System.out.println(" (" + listNum + ") " + item.toString());
 				listNum++;
 				count++;
 			}
-			
+
 		}
 	}
-	
-	
+
 	public void serialSearchResults(String itemString) {
 		System.out.println("Here are the search results:\n");
-		System.out.println(" (1) "+ itemString);
+		System.out.println(" (1) " + itemString);
 		System.out.println(" (2) Back to Search Menu\n");
-		
+
 	}
-	
+
 	public int promptPurchase() {
 		System.out.println("Enter Option Number to purchase: ");
 		int option = input.nextInt();
 		return option;
 	}
+
 	public void purchaseSuccessful() {
 		System.out.println("The Transaction Successfully Terminated!\n");
 	}
+
 	public void noStock() {
 		System.out.println("Sorry, the product you wanted to purchase is out of Stock");
 	}
@@ -178,9 +178,14 @@ public class AppMenu {
 		System.out.println("New Toy Added!\n");
 	}
 
+	public void serialSearchRemoval(String itemString) {
+		System.out.println("This Item Found:\n");
+		System.out.println(itemString + "\n");
+	}
+
 	public char promptRemoval() {
 		System.out.println("Do you want to remove it? (Y/N)");
-		char option = input.nextLine().toLowerCase().charAt(0);
+		char option = input.next().toLowerCase().charAt(0);
 		return option;
 	}
 
@@ -191,7 +196,7 @@ public class AppMenu {
 	public void saveMessage() {
 		System.out.println("Saving Data Into Database\n");
 		System.out.println("***********************************************");
-		System.out.println("* THANKS FOR VISTING US! *");
+		System.out.println("*           THANKS FOR VISTING US!            *");
 		System.out.println("***********************************************");
 	}
 
@@ -199,8 +204,16 @@ public class AppMenu {
 		System.out.println("This is Not an Integer Number! Try Again.\n");
 	}
 
+	public void validateNegativeNum() {
+		System.out.println("This is Not a Positive Number! Try Again.\n");
+	}
+
 	public void validateOptionNotValid() {
 		System.out.println("This is Not an Valid Option! Try Again.\n");
+	}
+
+	public void validateEnterNum() {
+		System.out.println("This is Not an Valid Number! Try Again.\n");
 	}
 
 	public void validateExistingSN() {

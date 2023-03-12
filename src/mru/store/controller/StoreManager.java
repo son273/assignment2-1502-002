@@ -56,126 +56,104 @@ public class StoreManager {
 		boolean flag = true;
 		// use case to
 		while (flag) {
-		int choice = menu.searchMenu();
+			int choice = menu.searchMenu();
 			switch (choice) {
 			case 1:
 				serialSearch();
 				break;
-				
+
 			case 2:
 				nameSearch();
 				break;
 			case 3:
-				
+
 				String type = menu.promptType();
-				
+
 			case 4:
 				flag = false;
 				break;
-	
+
 			}
 		}
 
 	}
+
 	public void serialSearch() {
 		long serialNum = menu.promptSerialNum();
 		boolean found = false;
-		
+
 		for (Toys item : toy)
-			if(item.getSerialNumber() == serialNum && item.getAvalibleCount() > 0) {
+			if (item.getSerialNumber() == serialNum && item.getAvalibleCount() > 0) {
 				found = true;
 				menu.serialSearchResults(item.toString());
 				int choice = menu.promptPurchase();
-				if(choice == 1) {
+				if (choice == 1) {
 					int stock = item.getAvalibleCount();
 					stock -= 1;
 					item.setAvalibleCount(stock);
 					menu.purchaseSuccessful();
-					
-				}
-				else if (choice == 2) {
+
+				} else if (choice == 2) {
 					break;
-				}
-				else {
+				} else {
 					menu.validateOptionNotValid();
 				}
 				break;
-			}
-			else if(item.getSerialNumber() == serialNum && item.getAvalibleCount() == 0) {
+			} else if (item.getSerialNumber() == serialNum && item.getAvalibleCount() == 0) {
 				menu.noStock();
 				break;
 			}
 		if (found != true) {
 			menu.doesntExist();
-			
-		}	
+
+		}
 	}
-	
-	
-	
-	
+
 	private void nameSearch() {
 		boolean found = false;
-		String name = menu.prompToyName().trim().toLowerCase();;
+		String name = menu.prompToyName().trim().toLowerCase();
+		;
 		ArrayList<Toys> nameArray = new ArrayList<>();
 		int count = 0;
-		
-		for (Toys item: toy) {
-			if(item.getName().toLowerCase().trim().contains(name) && item.getAvalibleCount() > 0) {
+
+		for (Toys item : toy) {
+			if (item.getName().toLowerCase().trim().contains(name) && item.getAvalibleCount() > 0) {
 				nameArray.add(item);
 				count++;
 				found = true;
-			}
-			else if (item.getName().toLowerCase().trim().contains(name) && item.getAvalibleCount() == 0) {
+			} else if (item.getName().toLowerCase().trim().contains(name) && item.getAvalibleCount() == 0) {
 				nameArray.remove(item);
 			}
 		}
 		menu.nameSearchResults(nameArray, count);
 
-		
-		//name.trim.tolowercase
-		//make another array list
-		//put everything with the name 
-			//item.getName.trim().tolowercase().contains(name)
+		// name.trim.tolowercase
+		// make another array list
+		// put everything with the name
+		// item.getName.trim().tolowercase().contains(name)
 		//
 		if (found != true) {
 			menu.doesntExist();
-				
-		}	
+
+		}
 	}
-	
+
 	private void typeSearch() {
 		String type = menu.promptType();
-		//prompt enter type
-		//use array list to search for type matching it
-		//if item is instanceof typeOfToy(animals, boardGames, etc) then print out 
+		// prompt enter type
+		// use array list to search for type matching it
+		// if item is instanceof typeOfToy(animals, boardGames, etc) then print out
 
 	}
-	
 
 	private void addToy() {
 		// prompt for serial number
 		long serialNum = serialNum();
-		boolean serialNumExists = false;
-		while (true) {
-			for (Toys item : toy) {
-				if (item.getSerialNumber() == serialNum) {
-					menu.validateExistingSN();
-					serialNum = menu.promptSerialNum();
-					serialNumExists = true;
-					break;
-				}
-			}
-			if (!serialNumExists) {
-				break;
-			}
-			serialNumExists = false;
-		}
 		String toyName = menu.prompToyName();
 		String toyBrand = menu.prompBrandName();
-		float toyPrice = menu.promptToyPrice();
-		int availability = menu.promptAvailability();
-		int age = menu.promptAge();
+		float toyPrice = getToyPrice();
+		int availability = getAvailability();
+		int age = getAge();
 		String serialNumString = Long.toString(serialNum);
 		char firstVal = serialNumString.charAt(0);
 		int firstNum = Character.getNumericValue(firstVal);
@@ -207,24 +185,107 @@ public class StoreManager {
 	}
 
 	private long serialNum() {
-		long serialNum;
-		do {
-			try {
+
+		long serialNum = 0;
+
+		try {
+			// prompt to enter a serial number
+			serialNum = menu.promptSerialNum();
+
+			// validate length of the serial number
+			while (String.valueOf(serialNum).length() != 10) {
+				menu.validateSNLength();
 				serialNum = menu.promptSerialNum();
-				if ((Long.toString(serialNum)).length() != 10) {
-					menu.validateSNLength();
-				} else {
-					return serialNum;
-				}
-			} catch (InputMismatchException e) {
-				menu.validateSN();
-				menu.promptSerialNum();
 			}
-		} while (true);
+
+			// check if the serial number exists
+			boolean serialNumExists = true;
+			while (serialNumExists) {
+				serialNumExists = false;
+				for (Toys item : toy) {
+					if (item.getSerialNumber() == serialNum) {
+						menu.validateExistingSN();
+						serialNum = menu.promptSerialNum();
+						serialNumExists = true;
+						break;
+					}
+				}
+			}
+		} catch (InputMismatchException e) {
+			menu.validateSN();
+			serialNum = menu.promptSerialNum();
+		}
+
+		return serialNum;
+	}
+
+	private float getToyPrice() {
+		float toyPrice = 0;
+		try {
+			toyPrice = menu.promptToyPrice();
+			if (toyPrice < 0) {
+				menu.validateNegativeNum();
+				return getToyPrice();
+			}
+		} catch (InputMismatchException e) {
+			menu.validateEnterNum();
+			toyPrice = menu.promptToyPrice();
+		}
+		return toyPrice;
+	}
+
+	private int getAvailability() {
+		int toyAvailability = 0;
+		try {
+			toyAvailability = menu.promptAvailability();
+			if (toyAvailability < 0) {
+				menu.validateNegativeNum();
+				return getAvailability();
+			}
+		} catch (InputMismatchException e) {
+			menu.validateEnterNum();
+			toyAvailability = menu.promptAvailability();
+		}
+		return toyAvailability;
+	}
+
+	private int getAge() {
+		int minAge = 0;
+		try {
+			minAge = menu.promptAge();
+			if (minAge < 0) {
+				menu.validateNegativeNum();
+				return getAvailability();
+			}
+		} catch (InputMismatchException e) {
+			menu.validateEnterNum();
+			minAge = menu.promptAge();
+		}
+		return minAge;
 	}
 
 	private void removeToy() {
-		// prompt serial num
+		long serialNum = menu.promptSerialNum();
+		boolean found = false;
+
+		for (Toys item : toy)
+			if (item.getSerialNumber() == serialNum) {
+				found = true;
+				menu.serialSearchRemoval(item.toString());
+				char choice = menu.promptRemoval();
+				switch (choice) {
+				case 'y':
+					toy.remove(item);
+					menu.toyRemovedMessage();
+				case 'n':
+					break;
+				default:
+					menu.validateOptionNotValid();
+				}
+			}
+		if (found != true) {
+			menu.doesntExist();
+		}
 	}
 
 	private void gift() {

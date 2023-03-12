@@ -21,24 +21,30 @@ public class AppMenu {
 	}
 
 	public int showMainMenu() {
+		int option = 0;
+
 		System.out.println("How May We Help You?\n");
 		System.out.println("\t (1) Search Inventory and Purchase Toy");
 		System.out.println("\t (2) Add New Toy");
 		System.out.println("\t (3) Remove Existing Toy");
 		System.out.println("\t (4) Save and Exit\n");
 		System.out.println("Enter Option:");
-		int option = input.nextInt();
+		option = input.nextInt();
+
 		return option;
 	}
 
 	public int searchMenu() {
+		int option = 0;
+		input.nextLine();
 		System.out.println("Find Toys With:\n");
 		System.out.println("\t (1) Serial Number (SN)");
 		System.out.println("\t (2) Toy Name");
 		System.out.println("\t (3) Type");
 		System.out.println("\t (4) Back to Main Menu\n");
 		System.out.println("Enter Option:");
-		int option = input.nextInt();
+		option = input.nextInt();
+
 		return option;
 	}
 
@@ -54,6 +60,13 @@ public class AppMenu {
 		input.nextLine();
 	}
 
+	public void promptEnterKeyMainMenu() { // Used to clear input in Main Menu
+		input.nextLine();
+		Scanner input = new Scanner(System.in);
+		System.out.println("Press Enter to Continue...");
+		input.nextLine();
+	}
+
 	public String promptType() {
 		System.out.println("Enter Type: ");
 		String toyType = input.next().trim();
@@ -61,6 +74,7 @@ public class AppMenu {
 	}
 
 	public long promptSerialNum() {
+		input.nextLine();
 		System.out.println("Enter Serial Number: ");
 		long serialNum = input.nextLong();
 		return serialNum;
@@ -138,19 +152,21 @@ public class AppMenu {
 		return designerName;
 	}
 
-	public void nameSearchResults(ArrayList<Toys> nameArray, int arrayCount) {
+	public int nameSearchResults(ArrayList<Toys> nameArray, int arrayCount) {
 		int count = 0;
 		int listNum = 1;
 		System.out.println("Here are the search results:\n");
 
-		while (arrayCount >= count) {
+		while (arrayCount > count) {
 			for (Toys item : nameArray) {
 				System.out.println(" (" + listNum + ") " + item.toString());
 				listNum++;
 				count++;
 			}
+			System.out.println(" (" + listNum + ") Back to Search Menu\n");
 
 		}
+		return listNum;
 	}
 
 	public void serialSearchResults(String itemString) {
@@ -161,9 +177,13 @@ public class AppMenu {
 	}
 
 	public int promptPurchase() {
+		int option = 0;
+		input.nextLine();
 		System.out.println("Enter Option Number to purchase: ");
-		int option = input.nextInt();
+		option = input.nextInt();
+
 		return option;
+
 	}
 
 	public void purchaseSuccessful() {
@@ -173,6 +193,10 @@ public class AppMenu {
 	public void noStock() {
 		System.out.println("Sorry, the product you wanted to purchase is out of Stock");
 	}
+
+//	public void noStockName(Toys item) {
+//		System.out.println("The product: " +item.getName()+ " is Currently out of stock");
+//	}
 
 	public void toyAddedMessage() {
 		System.out.println("New Toy Added!\n");
@@ -196,7 +220,7 @@ public class AppMenu {
 	public void saveMessage() {
 		System.out.println("Saving Data Into Database\n");
 		System.out.println("***********************************************");
-		System.out.println("*           THANKS FOR VISTING US!            *");
+		System.out.println("           * THANKS FOR VISTING US! *          ");
 		System.out.println("***********************************************");
 	}
 

@@ -32,35 +32,38 @@ public class StoreManager {
 
 	public void menuOptions() {
 		boolean flag = true;
+		int choice = 0;
 //		boolean exceptionLoop = true;
 //		while (exceptionLoop) {
-//			try {
-				while (flag) {
-					int choice = menu.showMainMenu();
-					switch (choice) {
-					case 1:
-						findAndPurchase();
-						break;
-					case 2:
-						addToy();
-						break;
-					case 3:
-						removeToy();
-						break;
-					case 4:
-						saveExit();
-//						exceptionLoop = false;
-						flag = false;
-						break;
-					default:
-					menu.validateOptionNotValid();
+	
+		while (flag) {
+			try {
+				choice = menu.showMainMenu();
+				switch (choice) {
+				case 1:
+					findAndPurchase();
 					break;
-					}
-//				}
-//			}catch(InputMismatchException e) {
-//				menu.validateNumNotValid();
+				case 2:
+					addToy();
+					break;
+				case 3:
+					removeToy();
+					break;
+				case 4:
+					saveExit();
+					flag = false;
+					break;
+				default:
+				menu.validateOptionNotValid();
+				break;
+				}
 			}
-//		}
+			catch(InputMismatchException e) {
+				menu.validateNumNotValid();
+				menu.promptEnterKeyMainMenu();
+				
+			}
+		}
 	}
 
 	private void findAndPurchase() {
@@ -68,25 +71,26 @@ public class StoreManager {
 		// use case to
 		while (flag) {
 			try {
-			int choice = menu.searchMenu();
-				switch (choice) {
-				case 1:
-					serialSearch();
-					break;
-					
-				case 2:
-					nameSearch();
-					break;
-				case 3:
-					typeSearch();	
-					break;
-				case 4:
-					flag = false;
-					break;
-		
-				}
+				int choice = menu.searchMenu();
+					switch (choice) {
+					case 1:
+						serialSearch();
+						break;
+						
+					case 2:
+						nameSearch();
+						break;
+					case 3:
+						typeSearch();	
+						break;
+					case 4:
+						flag = false;
+						break;
+			
+					}
 			}catch(InputMismatchException mismatch){
-				
+				menu.validateNumNotValid();
+				menu.promptEnterKey();
 			}
 		}
 
@@ -400,11 +404,8 @@ public class StoreManager {
 		try {
 			PrintWriter pw = new PrintWriter(txt);
 			for (int i = 0; i < toy.size(); i++) {
-			     if (i == (toy.size() - 1)) {
-			           pw.print(toy.get(i));
-			     } else {
-			           pw.println(toy.get(i));
-			     }
+				pw.println(toy.get(i).format());
+
 			}
 			pw.close();
 
@@ -432,18 +433,18 @@ public class StoreManager {
 					String serialNum = splittedLine[0];
 					char firstNum = serialNum.charAt(0);
 					int firstNumber = Character.getNumericValue(firstNum);
-					if (firstNumber <= 1) {
+					if (firstNumber <= 1 && splittedLine.length == 7) {
 						Toys figures = new Figures(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2],
 								Float.parseFloat(splittedLine[3]), Integer.parseInt(splittedLine[4]),
 								Integer.parseInt(splittedLine[5]), splittedLine[6]);
 						toy.add(figures);
 
-					} else if (firstNumber <= 3) {
+					} else if (firstNumber <= 3 && splittedLine.length == 8) {
 						Toys animal = new Animals(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2],
 								Float.parseFloat(splittedLine[3]), Integer.parseInt(splittedLine[4]),
 								Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7]);
 						toy.add(animal);
-					} else if (firstNumber <= 6) {
+					} else if (firstNumber <= 6 && splittedLine.length == 7) {
 						Toys puzzles = new Puzzles(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2],
 								Float.parseFloat(splittedLine[3]), Integer.parseInt(splittedLine[4]),
 								Integer.parseInt(splittedLine[5]), splittedLine[6]);

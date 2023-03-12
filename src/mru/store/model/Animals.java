@@ -105,7 +105,7 @@ public class Animals extends Toys {
 
 	@Override
 	public String toString() {
-		return "Category: Animals, "+"Serial Number: "+serialNum+", Name: "+name+", Brand: "+brand+", Price"+price+", Availible Stock: "+stockCount+", Minimum Age: "+minAge+", Material: "+material;
+		return "Category: Animals, "+"Serial Number: "+serialNum+", Name: "+name+", Brand: "+brand+", Price: "+price+", Availible Stock: "+stockCount+", Minimum Age: "+minAge+", Material: "+material;
 	}
 
 

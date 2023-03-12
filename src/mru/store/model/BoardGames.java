@@ -120,7 +120,7 @@ public class BoardGames extends Toys{
 	
 	@Override
 	public String toString() {
-		return "Category: Board Games, "+"Serial Number: "+serialNum+", Name: "+name+", Brand: "+brand+", Price"+price+", Availible Stock: "+stockCount+", Minimum Age: "+minAge + ", Player Count: "+minNumOfPlayers+"-"+maxNumOfPlayers+", Designers:"+designers;
+		return "Category: Board Games, "+"Serial Number: "+serialNum+", Name: "+name+", Brand: "+brand+", Price: "+price+", Availible Stock: "+stockCount+", Minimum Age: "+minAge + ", Player Count: "+minNumOfPlayers+"-"+maxNumOfPlayers+", Designers:"+designers;
 	}
 	
 	

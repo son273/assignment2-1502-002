@@ -23,7 +23,7 @@ public class AppMenu {
 
 	public int showMainMenu() {
 		int option = 0;
-
+		
 		System.out.println("How May We Help You?\n");
 		System.out.println("\t (1) Search Inventory and Purchase Toy");
 		System.out.println("\t (2) Add New Toy");
@@ -34,10 +34,12 @@ public class AppMenu {
 		
 		return option;
 	}
+	
+
 
 	public int searchMenu() {
 		int option = 0;
-	
+		input.nextLine();
 		System.out.println("Find Toys With:\n");
 		System.out.println("\t (1) Serial Number (SN)");
 		System.out.println("\t (2) Toy Name");
@@ -56,6 +58,12 @@ public class AppMenu {
 	}
 
 	public void promptEnterKey() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Press Enter to Continue...");
+		input.nextLine();
+	}
+	public void promptEnterKeyMainMenu() { // Used to clear input in Main Menu
+		input.nextLine();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Press Enter to Continue...");
 		input.nextLine();

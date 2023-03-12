@@ -101,7 +101,7 @@ public class Puzzles extends Toys{
 	
 	@Override
 	public String toString() {
-		return "Category: Puzzles, "+"Serial Number: "+serialNum+", Name: "+name+", Brand: "+brand+", Price"+price+", Availible Stock: "+stockCount+", Minimum Age: "+minAge+", Type: "+type;
+		return "Category: Puzzles, "+"Serial Number: "+serialNum+", Name: "+name+", Brand: "+brand+", Price: "+price+", Availible Stock: "+stockCount+", Minimum Age: "+minAge+", Type: "+type;
 	}
 
 }

@@ -84,13 +84,13 @@ public class Figures extends Toys {
 
 	@Override
 	public String format() {
-		return serialNum + ";" + name + ";" + brand + ";" + price + ";" + stockCount + ";" + minAge + ";"
+		return "0"+serialNum + ";" + name + ";" + brand + ";" + price + ";" + stockCount + ";" + minAge + ";"
 				+ classification;
 	}
 
 	@Override
 	public String toString() {
-		return "Category: Figures, "+"Serial Number: "+serialNum+", Name: "+name+", Brand: "+brand+", Price"+price+", Availible Stock: "+stockCount+", Minimum Age: "+minAge+", Classification: "+classification;
+		return "Category: Figures, "+"Serial Number: 0"+serialNum+", Name: "+name+", Brand: "+brand+", Price: "+price+", Availible Stock: "+stockCount+", Minimum Age: "+minAge+", Classification: "+classification;
 	}
 	
 	

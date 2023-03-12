@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import mru.store.model.Toys;
-
+/**
+ * 
+ * Responsible for running the whole program
+ * @author Steven and Caesar
+ * @version March 12, 2023
+ * 
+ */
 public class AppMenu {
 
 	Scanner input;
@@ -194,9 +200,6 @@ public class AppMenu {
 		System.out.println("Sorry, the product you wanted to purchase is out of Stock");
 	}
 
-//	public void noStockName(Toys item) {
-//		System.out.println("The product: " +item.getName()+ " is Currently out of stock");
-//	}
 
 	public void toyAddedMessage() {
 		System.out.println("New Toy Added!\n");

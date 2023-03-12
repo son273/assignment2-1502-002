@@ -111,7 +111,7 @@ public class StoreManager {
 
 	}
 	/**
-	 * This MEthod is responsible for searching the database for a matching serial number and 
+	 * This Method is responsible for searching the database for a matching serial number and prompting user to purchase item
 	 */
 	public void serialSearch() {
 		boolean found = false; // Becomes true if item is found
@@ -169,8 +169,10 @@ public class StoreManager {
 	
 	
 	
-	
-	private void nameSearch() { //Responsible for searching for name of toy
+	/**
+	 * This Method is responsible for searching the database for a matching name and prompting the user to purchase item
+	 */
+	private void nameSearch() { 
 		boolean found = false; // Becomes true once item is found
 		boolean enter = false; // Becomes true once user presses enter
 		String name = menu.prompToyName().trim().toLowerCase(); //prompts for user to input a toy name
@@ -234,8 +236,10 @@ public class StoreManager {
 		}
 	}
 	
-	
-	private void typeSearch() { //Responsible for searching Type of toy
+	/**
+	 * This Method is responsible for searching the database for a matching toy type and prompting the user to purchase item
+	 */
+	private void typeSearch() { 
 		String type = menu.promptType().trim().toLowerCase(); // Prompts user to enter a type of toy
 		ArrayList<Toys> nameArray = new ArrayList<>();
 		int listSize = 0;
@@ -250,12 +254,8 @@ public class StoreManager {
 						nameArray.add(item);
 						itemCount ++;
 						found = true;
-					}
-						
+					}		
 				}
-				//instance of...
-				//show it like in names
-				//
 			}
 			else if(type.equals("figures")|| type.equals( "figure")) { // Adds Figure toys to list and item count (Will be sent to AppMenu for display later)
 				if (item instanceof Figures) {
@@ -263,12 +263,8 @@ public class StoreManager {
 						nameArray.add(item);
 						itemCount ++;
 						found = true;
-
 					}
-					
-						
 				}
-				
 			}
 			else if (type.equals("puzzles")||type.equals("puzzle")) { // Adds Puzzle toys to list and item count (Will be sent to AppMenu for display later)
 				if (item instanceof Puzzles) {
@@ -276,11 +272,8 @@ public class StoreManager {
 						nameArray.add(item);
 						itemCount ++;
 						found = true;
-
 					}
-						
 				}
-				
 			}
 			else if (type.equals("board")||type.equals("boards")||type.equals("boardgame")||type.equals("boardgames")) { // Adds Board Games toys to list and item count (Will be sent to AppMenu for display later)
 				if (item instanceof BoardGames) {
@@ -288,18 +281,14 @@ public class StoreManager {
 						nameArray.add(item);
 						itemCount ++;
 						found = true;
-
-					}
-						
-				}
-				
+					}		
+				}	
 			}
 		}
 		if (found != true) { //If User enters a wrong input, sends back to search menu
 			menu.validateOptionNotValid();
 			enter = true;
-			menu.promptEnterKey();
-			
+			menu.promptEnterKey();	
 		}
 		
 		while (enter != true) {  // This loops is responsible for dealing with purchase of item and validating proper inputs when purhcasing
@@ -314,9 +303,7 @@ public class StoreManager {
 			else if (choice > listSize || choice < 0){ // if input was larger than list size or smaller than 0, displays invalid imput
 				menu.validateOptionNotValid();
 				menu.promptEnterKey();
-		
 			}
-			
 			else{// If user chooses a toy to purchase, it will -1 from stock and prints purchase was successful
 	
 				Toys item = nameArray.get(choice);
@@ -333,7 +320,7 @@ public class StoreManager {
 		catch(InputMismatchException mismatch){
 			menu.validateNumNotValid();
 			menu.promptEnterKey();
-		}
+			}
 		
 		}
 	}
@@ -413,7 +400,9 @@ public class StoreManager {
 		// prompt serial num
 	}
 
-
+	/**
+	 * This Method is responsible for writing the arraylist to the txt file (save and exitting)
+	 */
 	private void saveExit() {// NOT FINISHED
 		File txt = new File(FILE_PATH);
 		try {
@@ -430,8 +419,10 @@ public class StoreManager {
 		}
 		menu.saveMessage();
 	}
-
-	private void loadData() { // NOT FINISHED
+	/**
+	 * This Method is responsible for reading the txt file and putting the elements inside a arraylist
+	 */
+	private void loadData() {
 		File txt = new File(FILE_PATH); // opens file
 		String currentLine;
 		String[] splittedLine;

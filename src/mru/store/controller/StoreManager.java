@@ -328,7 +328,7 @@ public class StoreManager {
 
 	private void addToy() {
 		// prompt for serial number
-		long serialNum = serialNum();
+		long serialNum = getSerialNum();
 		String toyName = menu.prompToyName();
 		String toyBrand = menu.prompBrandName();
 		float toyPrice = getToyPrice();
@@ -364,7 +364,7 @@ public class StoreManager {
 		menu.promptEnterKey();
 	}
 
-	private long serialNum() {
+	private long getSerialNum() {
 
 		long serialNum = 0;
 

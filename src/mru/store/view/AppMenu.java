@@ -189,6 +189,10 @@ public class AppMenu {
 	public void noStock() {
 		System.out.println("Sorry, the product you wanted to purchase is out of Stock");
 	}
+	
+//	public void noStockName(Toys item) {
+//		System.out.println("The product: " +item.getName()+ " is Currently out of stock");
+//	}
 
 	public void toyAddedMessage() {
 		System.out.println("New Toy Added!\n");
@@ -207,7 +211,7 @@ public class AppMenu {
 	public void saveMessage() {
 		System.out.println("Saving Data Into Database\n");
 		System.out.println("***********************************************");
-		System.out.println("* THANKS FOR VISTING US! *");
+		System.out.println("           * THANKS FOR VISTING US! *          ");
 		System.out.println("***********************************************");
 	}
 

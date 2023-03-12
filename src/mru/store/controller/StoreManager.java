@@ -52,6 +52,9 @@ public class StoreManager {
 //						exceptionLoop = false;
 						flag = false;
 						break;
+					default:
+					menu.validateOptionNotValid();
+					break;
 					}
 //				}
 //			}catch(InputMismatchException e) {
@@ -64,66 +67,73 @@ public class StoreManager {
 		boolean flag = true;
 		// use case to
 		while (flag) {
-		int choice = menu.searchMenu();
-			switch (choice) {
-			case 1:
-				serialSearch();
-				break;
+			try {
+			int choice = menu.searchMenu();
+				switch (choice) {
+				case 1:
+					serialSearch();
+					break;
+					
+				case 2:
+					nameSearch();
+					break;
+				case 3:
+					typeSearch();	
+					break;
+				case 4:
+					flag = false;
+					break;
+		
+				}
+			}catch(InputMismatchException mismatch){
 				
-			case 2:
-				nameSearch();
-				break;
-			case 3:
-				typeSearch();				
-			case 4:
-				flag = false;
-				break;
-	
 			}
 		}
 
 	}
-	public void serialSearch() {
-		boolean found = false;
-		boolean exceptionLoop = true;
-		boolean enter = true;
-		long serialNum = 0;
+	public void serialSearch() { //Responsible for search serial number
+		boolean found = false; // Becomes true if item is found
+		boolean enter = false;
+		boolean exceptionLoop = true; //Used to keep looping try/catch until exception is cleared
+		long serialNum = 0; 
 		while (exceptionLoop) {
 			try {
-				serialNum = menu.promptSerialNum();
+				serialNum = menu.promptSerialNum(); // prompts for serial num
 				
 				
-				for (Toys item : toy)
-					if(item.getSerialNumber() == serialNum && item.getAvalibleCount() > 0) {
+				for (Toys item : toy) // iterates through file array
+					if(item.getSerialNumber() == serialNum && item.getAvalibleCount() > 0) { 
 						found = true;
-						menu.serialSearchResults(item.toString());
-						int choice = menu.promptPurchase();
-						if(choice == 1) {
+						while (enter != true) {
+						menu.serialSearchResults(item.toString()); // Displays the what the user can purchase
+						int choice = menu.promptPurchase(); // Prompts purchase
+						if(choice == 1) { // If they choose 1, they purchase item
 							int stock = item.getAvalibleCount();
-							stock -= 1;
+							stock -= 1; // deals with stock
 							item.setAvalibleCount(stock);
-							menu.purchaseSuccessful();
-							menu.promptEnterKey();
-							enter = false;
+							menu.purchaseSuccessful(); // displays purchase is successful
+							menu.promptEnterKey(); // prompts for user to press enter
+							enter = true;
 							
 						}
-						else if (choice == 2) {
-							enter = false;
+						else if (choice == 2) { // If they type 2, they go back a menu
+							enter = true;
 							break;
 						}
-						else {
+						else { // Any other input is invalid
 							menu.validateOptionNotValid();
 							menu.promptEnterKey();
-							break;
+							
+							}
 						}
-						break;
 					}
-					
 					else if(item.getSerialNumber() == serialNum && item.getAvalibleCount() == 0) {
-						menu.noStock();
+						menu.noStock(); // if the specific item has a stock cound of 0, then displays out of stock
+						found = true;
+						menu.promptEnterKey();
 						break;
 					}
-				if (found != true) {
+				if (found != true) { // If item serial num is not in arraylist, displays item doesn't exist
 					menu.doesntExist();
 					menu.promptEnterKey();
 					}
@@ -138,12 +148,12 @@ public class StoreManager {
 	
 	
 	
-	private void nameSearch() {
-		boolean found = false;
-		boolean enter = false;
-		String name = menu.prompToyName().trim().toLowerCase();;
-		ArrayList<Toys> nameArray = new ArrayList<>();
-		int itemCount = 0;
+	private void nameSearch() { //Responsible for searching for name of toy
+		boolean found = false; // Becomes true once item is found
+		boolean enter = false; // Becomes true once user presses enter
+		String name = menu.prompToyName().trim().toLowerCase(); //prompts for user to input a toy name
+		ArrayList<Toys> nameArray = new ArrayList<>(); 
+		int itemCount = 0; 
 		int listSize = 0;
 		int choice = 0;
 		
@@ -154,8 +164,13 @@ public class StoreManager {
 				itemCount++;
 				found = true;	
 			}
+//			else if (item.getAvalibleCount() == 0){
+//				menu.noStockName(item);
+//			}
+			
 		}
-		if (found != true) {
+		
+		if (found != true) { // This If statement is responsible for telling user that the item they were looking for was not found and going back to the search menu
 			menu.doesntExist();
 			enter = true;
 			menu.promptEnterKey();
@@ -163,55 +178,56 @@ public class StoreManager {
 		}
 		
 
-		while(enter != true) { // This loops is responsible for dealing with purchase of item and validating proper inputs
+		while(enter != true) { // This loops is responsible for dealing with purchase of item and validating proper inputs when purchasing
 			listSize = menu.nameSearchResults(nameArray, itemCount);
 			try {
 				
-				choice = menu.promptPurchase();
+				choice = menu.promptPurchase(); //Prompts purchase
 				choice -= 1;
 				listSize -= 1;
-				if (choice == listSize) {
+				if (choice == listSize) { // If user input is equal to list size, goes back to main menu
 					break;
 				}
-				else if (choice > listSize || choice < 0){
+				else if (choice > listSize || choice < 0){ // If user input is larger than list size ot smaller than the # of choices, displays error
 					menu.validateOptionNotValid();
 					menu.promptEnterKey();
-					break;
+
 				}
 				
-				else{
+				else{ // If user chooses a toy to purchase, it will -1 from stock and prints purchase was successful
 					Toys item = nameArray.get(choice);
 					int stock = item.getAvalibleCount();
 					stock -= 1;
 					item.setAvalibleCount(stock);
 					menu.purchaseSuccessful();
 					
-				menu.promptEnterKey();
-				enter = true;
+					menu.promptEnterKey(); //Asks user to press enter and breaks the while loop once done
+					enter = true;
 				}
 			}
 			catch(InputMismatchException mismatch){
 				menu.validateNumNotValid();
+				menu.promptEnterKey();
 			}
-		
 		}
-		
-		
-		
 	}
 	
-	private void typeSearch() {
-		String type = menu.promptType().trim().toLowerCase();
+	
+	private void typeSearch() { //Responsible for searching Type of toy
+		String type = menu.promptType().trim().toLowerCase(); // Prompts user to enter a type of toy
 		ArrayList<Toys> nameArray = new ArrayList<>();
 		int listSize = 0;
 		int itemCount = 0;
-		boolean enter = false;
-		for (Toys item : toy) {
-			if (type == "animals" || type == "animal") {
+		int choice = 0;
+		boolean found = false;
+		boolean enter = false; // Becomes true once user presses enter
+		for (Toys item : toy) { // Iterates through lists and uses if statements to deterine which item shows
+			if (type.equals("animals")|| type.equals("animal") ) { // Adds Animal toys to list and item count (Will be sent to AppMenu for display later)
 				if (item instanceof Animals) {
 					if (item.getAvalibleCount() > 0) {
 						nameArray.add(item);
 						itemCount ++;
+						found = true;
 					}
 						
 				}
@@ -219,55 +235,84 @@ public class StoreManager {
 				//show it like in names
 				//
 			}
-			else if(type == "figures" || type == "figure") {
+			else if(type.equals("figures")|| type.equals( "figure")) { // Adds Figure toys to list and item count (Will be sent to AppMenu for display later)
 				if (item instanceof Figures) {
 					if (item.getAvalibleCount() > 0) {
 						nameArray.add(item);
 						itemCount ++;
+						found = true;
+
 					}
+					
 						
 				}
 				
 			}
-			else if (type == "puzzles" || type == "puzzle") {
+			else if (type.equals("puzzles")||type.equals("puzzle")) { // Adds Puzzle toys to list and item count (Will be sent to AppMenu for display later)
 				if (item instanceof Puzzles) {
 					if (item.getAvalibleCount() > 0) {
 						nameArray.add(item);
 						itemCount ++;
+						found = true;
+
 					}
 						
 				}
 				
 			}
-			else if (type == "boardgames" || type == "boardgame") {
+			else if (type.equals("board")||type.equals("boards")||type.equals("boardgame")||type.equals("boardgames")) { // Adds Board Games toys to list and item count (Will be sent to AppMenu for display later)
 				if (item instanceof BoardGames) {
 					if (item.getAvalibleCount() > 0) {
 						nameArray.add(item);
 						itemCount ++;
+						found = true;
+
 					}
 						
 				}
 				
 			}
-			else {
-				menu.validateOptionNotValid();
-				enter = true;
-				menu.promptEnterKey();
-				break;
-			}
+		}
+		if (found != true) { //If User enters a wrong input, sends back to search menu
+			menu.validateOptionNotValid();
+			enter = true;
+			menu.promptEnterKey();
 			
 		}
-		while (enter != true) {
-		listSize = menu.nameSearchResults(nameArray, itemCount);
+		
+		while (enter != true) {  // This loops is responsible for dealing with purchase of item and validating proper inputs when purhcasing
+		listSize = menu.nameSearchResults(nameArray, itemCount); // Sends array and item count to AppMenu to be displayed
 		try {
+			choice = menu.promptPurchase();//Prompts user which toy they want to purchase
+			choice -= 1;
+			listSize -= 1;
+			if (choice == listSize) { // If choice is equal to the list size, goes back to menu
+				break;
+			}
+			else if (choice > listSize || choice < 0){ // if input was larger than list size or smaller than 0, displays invalid imput
+				menu.validateOptionNotValid();
+				menu.promptEnterKey();
+		
+			}
+			
+			else{// If user chooses a toy to purchase, it will -1 from stock and prints purchase was successful
+	
+				Toys item = nameArray.get(choice);
+				int stock = item.getAvalibleCount();
+				stock -= 1;
+				item.setAvalibleCount(stock);
+				menu.purchaseSuccessful();
+				
+				menu.promptEnterKey();//Asks user to press enter and breaks the while loop once done
+				enter = true;
+			}
 			
 		}
 		catch(InputMismatchException mismatch){
 			menu.validateNumNotValid();
+			menu.promptEnterKey();
 		}
-		//prompt enter type
-		//use array list to search for type matching it
-		//if item is instanceof typeOfToy(animals, boardGames, etc) then print out 
+		
 		}
 	}
 	
@@ -347,15 +392,19 @@ public class StoreManager {
 	}
 
 	private void gift() {
-
+		
 	}
 
 	private void saveExit() {// NOT FINISHED
 		File txt = new File(FILE_PATH);
 		try {
 			PrintWriter pw = new PrintWriter(txt);
-			for (Toys t : toy) {
-				pw.printf(t.format());
+			for (int i = 0; i < toy.size(); i++) {
+			     if (i == (toy.size() - 1)) {
+			           pw.print(toy.get(i));
+			     } else {
+			           pw.println(toy.get(i));
+			     }
 			}
 			pw.close();
 
@@ -420,6 +469,7 @@ public class StoreManager {
 			catch (FileNotFoundException c) {
 				System.out.println("File Was not Found");
 			}
+			
 
 		}
 	}

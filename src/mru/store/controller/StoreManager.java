@@ -395,9 +395,6 @@ public class StoreManager {
 		// prompt serial num
 	}
 
-	private void gift() {
-		
-	}
 
 	private void saveExit() {// NOT FINISHED
 		File txt = new File(FILE_PATH);

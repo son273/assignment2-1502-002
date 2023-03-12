@@ -87,6 +87,7 @@ public class AppMenu {
 		String toyName = input.next();
 		return toyName;
 	}
+	
 
 	public String prompBrandName() {
 		System.out.println("Enter Brand Name: ");

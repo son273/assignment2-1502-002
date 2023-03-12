@@ -329,14 +329,15 @@ public class StoreManager {
 
 		}
 	}
+
 	/**
 	 * This Method is responsible for adding toys to the ArrayList based on user input
 	 */
 	private void addToy() throws MinPlayerException{
-		long serialNum = serialNum();
 		boolean error = true;
 		int minPlayers = 0;
 		int maxPlayers = 0;
+		long serialNum = getSerialNum();
 		String toyName = menu.prompToyName();
 		String toyBrand = menu.prompBrandName();
 		float toyPrice = getToyPrice();
@@ -384,7 +385,7 @@ public class StoreManager {
 	 * This method is responsible for prompting and validating serial number when adding toys
 	 * @return returns serial number user enterd
 	 */
-	private long serialNum() {
+	private long getSerialNum() {
 
 		long serialNum = 0;
 

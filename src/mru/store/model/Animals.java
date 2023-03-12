@@ -1,8 +1,14 @@
 package mru.store.model;
 
+/**
+ * The Animals class is a subclass of the Toys class and represents a type of
+ * toy that is an animal. It contains information such as the serial number,
+ * name, brand, price, stock count, minimum age, material, and size.
+ */
+
 public class Animals extends Toys {
 
-	private long serialNum;
+	private long serialNum; //
 	private String name;
 	private String brand;
 	private float price;
@@ -10,8 +16,21 @@ public class Animals extends Toys {
 	private int minAge;
 	private String material;
 	private String size;
-	
-	public Animals(long serialNum, String name, String brand, float price, int stockCount, int minAge, String material, String size ) {
+
+	/**
+	 * Creates a new animal toy with the specified attributes.
+	 * 
+	 * @param serialNum  the serial number of the animal toy
+	 * @param name       the name of the animal toy
+	 * @param brand      the brand of the animal toy
+	 * @param price      the price of the animal toy
+	 * @param stockCount the number of animal toys in stock
+	 * @param minAge     the minimum age that the animal toy is appropriate for
+	 * @param material   the material that the animal toy is made of
+	 * @param size       the size of the animal toy
+	 */
+	public Animals(long serialNum, String name, String brand, float price, int stockCount, int minAge, String material,
+			String size) {
 		this.serialNum = serialNum;
 		this.name = name;
 		this.brand = brand;
@@ -21,12 +40,11 @@ public class Animals extends Toys {
 		this.material = material;
 		this.size = size;
 	}
-	
-	
+
 	@Override
 	public void setSerialNumber(long serialNum) {
 		this.serialNum = serialNum;
-		
+
 	}
 
 	@Override
@@ -57,18 +75,16 @@ public class Animals extends Toys {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	
 
 	@Override
 	public void setAvalibleCount(int stockCount) {
-		this.stockCount = stockCount;		
+		this.stockCount = stockCount;
 	}
 
 	@Override
 	public int getAvalibleCount() {
-		return stockCount;	
+		return stockCount;
 	}
-
 
 	@Override
 	public void setAgeAppropriate(int minAge) {
@@ -79,7 +95,6 @@ public class Animals extends Toys {
 	public int getAgeAppropriate() {
 		return minAge;
 	}
-	
 
 	public String getMaterial() {
 		return material;
@@ -105,10 +120,9 @@ public class Animals extends Toys {
 
 	@Override
 	public String toString() {
-		return "Category: Animals, "+"Serial Number: "+serialNum+", Name: "+name+", Brand: "+brand+", Price: "+price+", Availible Stock: "+stockCount+", Minimum Age: "+minAge+", Material: "+material;
+		return "Category: Animals, " + "Serial Number: " + serialNum + ", Name: " + name + ", Brand: " + brand
+				+ ", Price: " + price + ", Availible Stock: " + stockCount + ", Minimum Age: " + minAge + ", Material: "
+				+ material;
 	}
-
-
-	
 
 }

@@ -15,13 +15,23 @@ import mru.store.model.Toys;
 import mru.store.view.AppMenu;
 //Manages and runs the application
 
+/**
+ * 
+ * @author Steven and Caesar
+ * @version 1.0
+ * 
+ */
+
+
 public class StoreManager {
-	private ArrayList<Toys> toy;
-	private AppMenu menu;
-	private final String FILE_PATH = "res/toys.txt";
+	private ArrayList<Toys> toy; // Arraylist for txt file
+	private AppMenu menu; //Appmenu Object
+	private final String FILE_PATH = "res/toys.txt"; // File Path
 
-	//
-
+	
+	/**
+	 * Constructor for StoreManager
+	 */
 	public StoreManager() {
 		toy = new ArrayList<>();
 		menu = new AppMenu();
@@ -29,7 +39,10 @@ public class StoreManager {
 		menuOptions();
 		//
 	}
-
+	/**
+	 * This Method is resposible for displaying and running the main menu
+	 * 
+	 */
 	public void menuOptions() {
 		boolean flag = true;
 		int choice = 0;
@@ -65,7 +78,9 @@ public class StoreManager {
 			}
 		}
 	}
-
+	/**
+	 * This Method is responsible for displaying and running the search menu
+	 */
 	private void findAndPurchase() {
 		boolean flag = true;
 		// use case to
@@ -95,9 +110,12 @@ public class StoreManager {
 		}
 
 	}
-	public void serialSearch() { //Responsible for search serial number
+	/**
+	 * This MEthod is responsible for searching the database for a matching serial number and 
+	 */
+	public void serialSearch() {
 		boolean found = false; // Becomes true if item is found
-		boolean enter = false;
+		boolean enter = false; // Becomes true when user presses enter
 		boolean exceptionLoop = true; //Used to keep looping try/catch until exception is cleared
 		long serialNum = 0; 
 		while (exceptionLoop) {

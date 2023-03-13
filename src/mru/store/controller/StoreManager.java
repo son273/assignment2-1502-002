@@ -20,7 +20,7 @@ import mru.store.view.AppMenu;
  * 
  * Responsible for managing the whole program
  * @author Steven and Caesar
- * @version March 12, 2023
+ * @version 6.9
  * 
  */
 
@@ -190,7 +190,7 @@ public class StoreManager {
 				itemCount++;
 				found = true;
 			}
-			
+				
 
 		}
 

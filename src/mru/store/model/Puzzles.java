@@ -3,7 +3,7 @@ package mru.store.model;
  * 
  * This Class is responsible for dealing with Puzzle toys 
  * * @author Steven and Caesar
- * @version March 12, 2023
+ * @version 6.9
  * 
  */
 public class Puzzles extends Toys{

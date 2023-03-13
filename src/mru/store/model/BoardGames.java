@@ -3,7 +3,7 @@ package mru.store.model;
  * 
  * This Class is responsible for dealing with BoardGame toys
  * @author Steven and Caesar
- * @version March 12, 2023
+ * @version 6.9
  * 
  */
 public class BoardGames extends Toys{

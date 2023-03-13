@@ -4,6 +4,9 @@ package mru.store.model;
  * The Animals class is a subclass of the Toys class and represents a type of
  * toy that is an animal. It contains information such as the serial number,
  * name, brand, price, stock count, minimum age, material, and size.
+ * 
+ * @author Caesar and Steven
+ * @version 6.9
  */
 
 public class Animals extends Toys {
@@ -41,83 +44,174 @@ public class Animals extends Toys {
 		this.size = size;
 	}
 
+	/**
+	 * Sets the serial number to user input
+	 * 
+	 * @param serialNum sets serial number
+	 */
 	@Override
 	public void setSerialNumber(long serialNum) {
 		this.serialNum = serialNum;
-
 	}
 
+	/**
+	 * Returns the current serial number
+	 * 
+	 * @return serialNum
+	 */
 	@Override
 	public long getSerialNumber() {
 		return serialNum;
 	}
 
+	/**
+	 * Sets name to user input
+	 * 
+	 * @param name sets name
+	 */
+	@Override
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Returns name
+	 * 
+	 * @return name to user
+	 */
+	@Override
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Sets brand to user input
+	 * 
+	 * @param brand sets brand
+	 */
+	@Override
 	public String getBrand() {
 		return brand;
 	}
 
+	/**
+	 * Returns brand to user
+	 * 
+	 * @return brand
+	 */
+	@Override
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
 
+	/**
+	 * Sets price to user input
+	 * 
+	 * @param price sets price
+	 */
+	@Override
 	public float getPrice() {
 		return price;
 	}
 
+	/**
+	 * Returns the price
+	 * 
+	 * @return price
+	 */
+	@Override
 	public void setPrice(float price) {
 		this.price = price;
 	}
 
+	/**
+	 * Sets stockCount to user input
+	 * 
+	 * @param stockCount sets stockCount
+	 */
 	@Override
 	public void setAvalibleCount(int stockCount) {
 		this.stockCount = stockCount;
 	}
 
+	/**
+	 * Returns the stock count
+	 * 
+	 * @return stockCount
+	 */
 	@Override
 	public int getAvalibleCount() {
 		return stockCount;
 	}
 
+	/**
+	 * Sets minAge to user input
+	 * 
+	 * @param minAge sets minAge
+	 */
 	@Override
 	public void setAgeAppropriate(int minAge) {
 		this.minAge = minAge;
 	}
 
+	/**
+	 * Returns the min age
+	 * 
+	 * @return minAge
+	 */
 	@Override
 	public int getAgeAppropriate() {
 		return minAge;
 	}
 
+	/**
+	 * returns material of animal toy
+	 * 
+	 * @return material
+	 */
 	public String getMaterial() {
 		return material;
 	}
 
+	/**
+	 * sets the material of animal toy base on user input
+	 * 
+	 * @param material sets material
+	 */
 	public void setMaterial(String material) {
 		this.material = material;
 	}
 
+	/**
+	 * returns size of animal toy
+	 * 
+	 * @return size
+	 */
 	public String getSize() {
 		return size;
 	}
 
+	/**
+	 * sets the size of animal toy based on user input
+	 * 
+	 * @param size sets size
+	 */
 	public void setSize(String size) {
 		this.size = size;
 	}
 
+	/**
+	 * Formats string in format of .txt file
+	 */
 	@Override
 	public String format() {
 		return serialNum + ";" + name + ";" + brand + ";" + price + ";" + stockCount + ";" + minAge + ";" + material
 				+ ";" + size;
 	}
 
+	/**
+	 * Formats fields in a legible format
+	 */
 	@Override
 	public String toString() {
 		return "Category: Animals, " + "Serial Number: " + serialNum + ", Name: " + name + ", Brand: " + brand

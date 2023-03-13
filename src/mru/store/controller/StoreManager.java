@@ -19,20 +19,23 @@ import mru.store.view.AppMenu;
 /**
  * 
  * Responsible for managing the whole program
+ * 
  * @author Steven and Caesar
  * @version March 12, 2023
  * 
  */
 
 public class StoreManager {
-	
+
 	private ArrayList<Toys> toy; // Arraylist for txt file
 	private AppMenu menu; // Appmenu Object
 	private final String FILE_PATH = "res/toys.txt"; // File Path
 
 	/**
 	 * Constructor for StoreManager
-	 * @throws MinPlayerException responsible for making sure min player is not larger than max player when adding a toy
+	 * 
+	 * @throws MinPlayerException responsible for making sure min player is not
+	 *                            larger than max player when adding a toy
 	 * 
 	 */
 	public StoreManager() throws MinPlayerException {
@@ -45,7 +48,9 @@ public class StoreManager {
 
 	/**
 	 * This Method is resposible for displaying and running the main menu
-	 * @throws MinPlayerException responsible for making sure min player is not larger than max player when adding a toy
+	 * 
+	 * @throws MinPlayerException responsible for making sure min player is not
+	 *                            larger than max player when adding a toy
 	 * 
 	 */
 	public void menuOptions() throws MinPlayerException {
@@ -64,10 +69,10 @@ public class StoreManager {
 				case 2: // Adds a toy
 					addToy();
 					break;
-				case 3: //Removes a toy
+				case 3: // Removes a toy
 					removeToy();
 					break;
-				case 4: //Saves and Exists
+				case 4: // Saves and Exists
 					saveExit();
 					flag = false;
 					break;
@@ -190,7 +195,6 @@ public class StoreManager {
 				itemCount++;
 				found = true;
 			}
-			
 
 		}
 
@@ -331,9 +335,10 @@ public class StoreManager {
 	}
 
 	/**
-	 * This Method is responsible for adding toys to the ArrayList based on user input
+	 * This Method is responsible for adding toys to the ArrayList based on user
+	 * input
 	 */
-	private void addToy() throws MinPlayerException{
+	private void addToy() throws MinPlayerException {
 		boolean error = true;
 		int minPlayers = 0;
 		int maxPlayers = 0;
@@ -351,25 +356,28 @@ public class StoreManager {
 			String figureClass = menu.promptFigureClass();
 			Toys newFigures = new Figures(serialNum, toyName, toyBrand, toyPrice, availability, age, figureClass);
 			toy.add(newFigures);
-		} else if (firstNum <= 3) {// If serial number starts with 2 or 3, toy becomes a animal and prompts for any extra characteristics of the type
+		} else if (firstNum <= 3) {// If serial number starts with 2 or 3, toy becomes a animal and prompts for any
+									// extra characteristics of the type
 			String material = menu.promptAnimalMaterial();
 			String size = menu.promptAnimalSize();
 			Toys newAnimals = new Animals(serialNum, toyName, toyBrand, toyPrice, availability, age, material, size);
 			toy.add(newAnimals);
-		} else if (firstNum <= 6) {// If serial number starts with 4, 5 or 6, toy becomes a puzzle and prompts for any extra characteristics of the type
+		} else if (firstNum <= 6) {// If serial number starts with 4, 5 or 6, toy becomes a puzzle and prompts for
+									// any extra characteristics of the type
 			String puzzleType = menu.promptPuzzleType();
 			Toys newPuzzles = new Puzzles(serialNum, toyName, toyBrand, toyPrice, availability, age, puzzleType);
 			toy.add(newPuzzles);
-		} else if (firstNum <= 9) {// If serial number starts with 7,8 or 9, toy becomes a board game and prompts for any extra characteristics of the type
+		} else if (firstNum <= 9) {// If serial number starts with 7,8 or 9, toy becomes a board game and prompts
+									// for any extra characteristics of the type
 			while (error) {
 				minPlayers = menu.promptBoardGameMinPlayers();
 				maxPlayers = menu.promptBoardGameMaxPlayers();
 				if (minPlayers > maxPlayers) {
-					throw new MinPlayerException ("Min Player cannot be larger than Max Players");
-				}else {
+					throw new MinPlayerException("Min Player cannot be larger than Max Players");
+				} else {
 					error = false;
 				}
-				
+
 			}
 			String designers = menu.promptBoardGameDesigners();
 			Toys newBoardGames = new BoardGames(serialNum, toyName, toyBrand, toyPrice, availability, age, minPlayers,
@@ -382,7 +390,9 @@ public class StoreManager {
 	}
 
 	/**
-	 * This method is responsible for prompting and validating serial number when adding toys
+	 * This method is responsible for prompting and validating serial number when
+	 * adding toys
+	 * 
 	 * @return returns serial number user enterd
 	 */
 	private long getSerialNum() {
@@ -394,7 +404,7 @@ public class StoreManager {
 			serialNum = menu.promptSerialNum();
 
 			// validate length of the serial number
-			while (String.valueOf(serialNum).length() != 10) { //Validates that serial num is 10 digits
+			while (String.valueOf(serialNum).length() != 10) { // Validates that serial num is 10 digits
 				menu.validateSNLength();
 				serialNum = menu.promptSerialNum();
 			}
@@ -403,7 +413,7 @@ public class StoreManager {
 			boolean serialNumExists = true;
 			while (serialNumExists) {
 				serialNumExists = false;
-				for (Toys item : toy) { //Validates that Serial number doesn't exist already
+				for (Toys item : toy) { // Validates that Serial number doesn't exist already
 					if (item.getSerialNumber() == serialNum) {
 						menu.validateExistingSN();
 						serialNum = menu.promptSerialNum();
@@ -414,14 +424,16 @@ public class StoreManager {
 			}
 		} catch (InputMismatchException e) {
 			menu.validateSN();
-			serialNum = menu.promptSerialNum();
+			return getSerialNum();
 		}
 
 		return serialNum;
 	}
 
 	/**
-	 * This method is responsoble for prompting and validating toy prices based on user input
+	 * This method is responsoble for prompting and validating toy prices based on
+	 * user input
+	 * 
 	 * @return returns toy price user entered
 	 */
 	private float getToyPrice() {
@@ -434,12 +446,15 @@ public class StoreManager {
 			}
 		} catch (InputMismatchException e) {
 			menu.validateEnterNum();
-			toyPrice = menu.promptToyPrice();
+			return getToyPrice();
 		}
 		return toyPrice;
 	}
+
 	/**
-	 * This method is responsoble for prompting and validating how much avalible stock a toy has based on user input
+	 * This method is responsoble for prompting and validating how much avalible
+	 * stock a toy has based on user input
+	 * 
 	 * @return returns availible stock user entered
 	 */
 	private int getAvailability() {
@@ -452,12 +467,15 @@ public class StoreManager {
 			}
 		} catch (InputMismatchException e) {
 			menu.validateEnterNum();
-			toyAvailability = menu.promptAvailability();
+			return getAvailability();
 		}
 		return toyAvailability;
 	}
+
 	/**
-	 * This method is responsoble for prompting and validating minimum age of toy based on user input
+	 * This method is responsible for prompting and validating minimum age of toy
+	 * based on user input
+	 * 
 	 * @return returns min age based on user input
 	 */
 	private int getAge() {
@@ -474,12 +492,12 @@ public class StoreManager {
 		}
 		return minAge;
 	}
-	
+
 	/**
-	 * This method is responsile for removing toy from ArrayList
+	 * This method is responsible for removing toy from ArrayList
 	 */
 	private void removeToy() {
-		long serialNum = menu.promptSerialNum();
+		long serialNum = getSerialNumRemoval();
 		boolean found = false; // Becomes true if item is found
 		boolean remove = false; // Becomes true if user decides to remove toy
 		int arrayNum = 0;
@@ -490,25 +508,43 @@ public class StoreManager {
 				menu.serialSearchRemoval(item.toString());
 				char choice = menu.promptRemoval();
 				switch (choice) {
-				case 'y': //Gets index of item to be removed later 
+				case 'y': // Gets index of item to be removed later
 					arrayNum = toy.indexOf(item);
 					remove = true;
 					menu.toyRemovedMessage();
-					
+
 				case 'n': // Goes back to main Menu
 					break;
 				default:
 					menu.validateOptionNotValid();
 					break;
-				}	
+				}
 			}
 		}
-		if (remove) { //Removes item from ArrayList
+		if (remove) { // Removes item from ArrayList
 			toy.remove(arrayNum);
 		}
-		if (found != true) { 
+		if (found != true) {
 			menu.doesntExist();
 		}
+	}
+
+	private long getSerialNumRemoval() {
+		long serialNum = 0;
+		try {
+			// prompt to enter a serial number
+			serialNum = menu.promptSerialNum();
+
+			// validate length of the serial number
+			while (String.valueOf(serialNum).length() != 10) { // Validates that serial num is 10 digits
+				menu.validateSNLength();
+				serialNum = menu.promptSerialNum();
+			}
+		} catch (InputMismatchException e) {
+			menu.validateSN();
+			return getSerialNumRemoval();
+		}
+		return serialNum;
 	}
 
 	/**
@@ -519,7 +555,7 @@ public class StoreManager {
 		File txt = new File(FILE_PATH);
 		try {
 			PrintWriter pw = new PrintWriter(txt);
-			for (int i = 0; i < toy.size(); i++) { //Iterates thorugh arrayList and writes to txt file
+			for (int i = 0; i < toy.size(); i++) { // Iterates thorugh arrayList and writes to txt file
 				pw.println(toy.get(i).format());
 
 			}
@@ -550,28 +586,34 @@ public class StoreManager {
 
 					currentLine = fileReader.nextLine(); // reads current line
 					splittedLine = currentLine.split(";"); // splits line at ;
-					String serialNum = splittedLine[0];  
+					String serialNum = splittedLine[0];
 					char firstNum = serialNum.charAt(0);
 					int firstNumber = Character.getNumericValue(firstNum);// Gets the first number of the serial number
-					if (firstNumber <= 1 && splittedLine.length == 7) { // If serial number is 1 or 0, current line becomes a figure object
+					if (firstNumber <= 1 && splittedLine.length == 7) { // If serial number is 1 or 0, current line
+																		// becomes a figure object
 						Toys figures = new Figures(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2],
 								Float.parseFloat(splittedLine[3]), Integer.parseInt(splittedLine[4]),
 								Integer.parseInt(splittedLine[5]), splittedLine[6]);
 						toy.add(figures);
 
-					} else if (firstNumber <= 3 && splittedLine.length == 8) { // If serial number is 2 or 3, current line becomes a animal object
+					} else if (firstNumber <= 3 && splittedLine.length == 8) { // If serial number is 2 or 3, current
+																				// line becomes a animal object
 						Toys animal = new Animals(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2],
 								Float.parseFloat(splittedLine[3]), Integer.parseInt(splittedLine[4]),
 								Integer.parseInt(splittedLine[5]), splittedLine[6], splittedLine[7]);
 						toy.add(animal);
-					} else if (firstNumber <= 6 && splittedLine.length == 7) { // If serial number is 4, 5 or 6, current line becomes a puzzle object
+					} else if (firstNumber <= 6 && splittedLine.length == 7) { // If serial number is 4, 5 or 6, current
+																				// line becomes a puzzle object
 						Toys puzzles = new Puzzles(Long.parseLong(splittedLine[0]), splittedLine[1], splittedLine[2],
 								Float.parseFloat(splittedLine[3]), Integer.parseInt(splittedLine[4]),
 								Integer.parseInt(splittedLine[5]), splittedLine[6]);
 						toy.add(puzzles);
 
-					} else if (firstNumber <= 9) { // If serial number is 7, 8 or 9, current line becomes a board game object
-						String[] numPlayers = splittedLine[6].split("-"); // Splits the number of players into 2 variabeles, min # of players and max # of players
+					} else if (firstNumber <= 9) { // If serial number is 7, 8 or 9, current line becomes a board game
+													// object
+						String[] numPlayers = splittedLine[6].split("-"); // Splits the number of players into 2
+																			// variabeles, min # of players and max # of
+																			// players
 						Toys boardGames = new BoardGames(Long.parseLong(splittedLine[0]), splittedLine[1],
 								splittedLine[2], Float.parseFloat(splittedLine[3]), Integer.parseInt(splittedLine[4]),
 								Integer.parseInt(splittedLine[5]), Integer.parseInt(numPlayers[0]),

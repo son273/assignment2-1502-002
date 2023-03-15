@@ -6,7 +6,17 @@ import org.junit.jupiter.api.Test;
 
 import mru.store.model.Figures;
 
-class FiguresTest {
+/**
+ * This test case tests the constructor and getters, setters, format() method,
+ * and toString() method of the Figures class. The assertEquals() method is used
+ * to compare the expected values with the actual values returned by the methods
+ * being tested.
+ * 
+ * @author caesar and steven
+ * @version 1.0
+ *
+ */
+public class FiguresTest {
 
 	@Test
 	public void testConstructorAndGetters() {

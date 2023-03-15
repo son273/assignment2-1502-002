@@ -16,7 +16,7 @@ import mru.store.model.Puzzles;
  * @version 1.0
  *
  */
-class PuzzlesTest {
+public class PuzzlesTest {
 
 	@Test
 	public void testConstructorAndGetters() {

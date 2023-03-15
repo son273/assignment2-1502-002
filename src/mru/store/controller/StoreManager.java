@@ -27,9 +27,9 @@ import mru.store.view.AppMenu;
 
 public class StoreManager {
 
-	private ArrayList<Toys> toy; // Arraylist for txt file
-	private AppMenu menu; // Appmenu Object
-	private final String FILE_PATH = "res/toys.txt"; // File Path
+	private ArrayList<Toys> toy;//ArrayList for toys object
+	private AppMenu menu;//AppMenu Object
+	private final String FILE_PATH = "res/toys.txt";//File Path for database
 
 	/**
 	 * Constructor for StoreManager
@@ -337,6 +337,7 @@ public class StoreManager {
 	/**
 	 * This Method is responsible for adding toys to the ArrayList based on user
 	 * input
+	 * @throws MinPlayerException makes sure minplayer is not bigger than maxplayer
 	 */
 	private void addToy() throws MinPlayerException {
 		boolean error = true;
@@ -529,6 +530,10 @@ public class StoreManager {
 		}
 	}
 
+	/**
+	 * Prompts user for Serial Number and validates/catches exceptions for removal of toy
+	 * @return serialNum
+	 */
 	private long getSerialNumRemoval() {
 		long serialNum = 0;
 		try {

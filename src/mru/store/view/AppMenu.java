@@ -15,12 +15,12 @@ import mru.store.model.Toys;
  */
 public class AppMenu {
 
-	Scanner input;
+	Scanner input; // Creates a scanner object for imputs
 
 	/*
 	 * this method initializes scanner and calls welcomeMessage
 	 */
-	public AppMenu() {
+	public AppMenu() { // Constructor of AppMenu, initializes scanner and calls welcomeMessage
 		input = new Scanner(System.in);
 		welcomeMessage();
 	}

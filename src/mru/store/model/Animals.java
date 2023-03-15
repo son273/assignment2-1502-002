@@ -11,14 +11,14 @@ package mru.store.model;
 
 public class Animals extends Toys {
 
-	private long serialNum; //
-	private String name;
-	private String brand;
-	private float price;
-	private int stockCount;
-	private int minAge;
-	private String material;
-	private String size;
+	private long serialNum; // Serial Number of Toy
+	private String name; // Name of Toy
+	private String brand; // Brand Name
+	private float price; // Price of Toy
+	private int stockCount; // Availible Stock
+	private int minAge; // Minimum Age
+	private String material; // Material of toy
+	private String size; // Size of toy
 
 	/**
 	 * Creates a new animal toy with the specified attributes.
@@ -65,9 +65,9 @@ public class Animals extends Toys {
 	}
 
 	/**
-	 * Sets name to user input
+	 * Return Name
+	 * @return name
 	 * 
-	 * @param name sets name
 	 */
 	@Override
 	public String getName() {
@@ -75,9 +75,9 @@ public class Animals extends Toys {
 	}
 
 	/**
-	 * Returns name
+	 * Sets name
+	 * @param name sets name
 	 * 
-	 * @return name to user
 	 */
 	@Override
 	public void setName(String name) {
@@ -85,9 +85,8 @@ public class Animals extends Toys {
 	}
 
 	/**
-	 * Sets brand to user input
-	 * 
-	 * @param brand sets brand
+	 * Returns brand to user
+	 * @return brand
 	 */
 	@Override
 	public String getBrand() {
@@ -95,9 +94,8 @@ public class Animals extends Toys {
 	}
 
 	/**
-	 * Returns brand to user
-	 * 
-	 * @return brand
+	 * Sets brand to user input
+	 * @param brand sets brand
 	 */
 	@Override
 	public void setBrand(String brand) {
@@ -105,9 +103,9 @@ public class Animals extends Toys {
 	}
 
 	/**
-	 * Sets price to user input
+	 * Return Price
 	 * 
-	 * @param price sets price
+	 * @return price 
 	 */
 	@Override
 	public float getPrice() {
@@ -115,9 +113,9 @@ public class Animals extends Toys {
 	}
 
 	/**
-	 * Returns the price
+	 * Sets the price
 	 * 
-	 * @return price
+	 * @param price sets price
 	 */
 	@Override
 	public void setPrice(float price) {

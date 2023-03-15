@@ -1,23 +1,24 @@
 package mru.store.model;
 
 /**
- * 
- * This Class is responsible for dealing with BoardGame toys
+ * The Board Games class is a subclass of the Toys class and represents a type of
+ * toy that is a Board Game. It contains information such as the serial number,
+ * name, brand, price, stock count, minimum age, minimum players, maximum players and designers.
  * 
  * @author Steven and Caesar
  * @version 6.9
  * 
  */
 public class BoardGames extends Toys {
-	private long serialNum;
-	private String name;
-	private String brand;
-	private float price;
-	private int stockCount;
-	private int minAge;
-	private int minNumOfPlayers;
-	private int maxNumOfPlayers;
-	private String designers;
+	private long serialNum; // Serial Number of Toy
+	private String name; // Name of Toy
+	private String brand; // Brand Name
+	private float price; // Price of Toy
+	private int stockCount; // Availible Stock
+	private int minAge; // Minimum Age
+	private int minNumOfPlayers; // Minimum number of players
+	private int maxNumOfPlayers; //Minimum number of players
+	private String designers; // List of Designers
 
 	/**
 	 * Constructor for BoardGames, initializes all fields

@@ -1,8 +1,9 @@
 package mru.store.testmodel;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.jupiter.api.*;
 
 import mru.store.model.Puzzles;
 
@@ -19,6 +20,9 @@ import mru.store.model.Puzzles;
 public class PuzzlesTest {
 
 	@Test
+	/**
+	 * Test getters of puzzle class
+	 */
 	public void testConstructorAndGetters() {
 		Puzzles puzzleToy = new Puzzles(1111111111, "GenericName", "GenericBrand", 19.99f, 10, 3, "Cryptic");
 
@@ -32,6 +36,9 @@ public class PuzzlesTest {
 	}
 
 	@Test
+	/**
+	 * Test setters of puzzle class
+	 */
 	public void testSetters() {
 		Puzzles puzzleToy = new Puzzles(0, null, null, 0, 0, 0, null);
 		puzzleToy.setSerialNumber(1987654321);
@@ -51,6 +58,9 @@ public class PuzzlesTest {
 	}
 
 	@Test
+	/**
+	 * Test format of puzzle class
+	 */
 	public void testFormat() {
 		Puzzles puzzleToy = new Puzzles(1111111111, "GenericName", "GenericBrand", 19.99f, 10, 3, "Cryptic");
 
@@ -59,6 +69,9 @@ public class PuzzlesTest {
 	}
 
 	@Test
+	/**
+	 * Tests toString of puzzle class
+	 */
 	public void testToString() {
 		Puzzles puzzleToy = new Puzzles(1111111111, "GenericName", "GenericBrand", 19.99f, 10, 3, "Cryptic");
 

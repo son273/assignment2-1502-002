@@ -17,8 +17,13 @@ import mru.store.model.Animals;
  *
  */
 public class AnimalsTest {
-
+	
+	
+	
 	@Test
+	/**
+	 * Tests the getter of the Animal Class
+	 */
 	public void testConstructorAndGetters() {
 		Animals animalToy = new Animals(1234567899, "GenericName", "GenericBrand", 19.99f, 10, 3, "Plastic", "Medium");
 
@@ -33,6 +38,9 @@ public class AnimalsTest {
 	}
 
 	@Test
+	/**
+	 * Test the setters of Animals class
+	 */
 	public void testSetters() {
 		Animals animalToy = new Animals(0, null, null, 0, 0, 0, null, null);
 
@@ -62,6 +70,9 @@ public class AnimalsTest {
 	}
 
 	@Test
+	/**
+	 * Test the format of animals class
+	 */
 	public void testFormat() {
 		Animals animalToy = new Animals(1234567899, "GenericName", "GenericBrand", 19.99f, 10, 3, "Plastic", "Medium");
 
@@ -70,6 +81,9 @@ public class AnimalsTest {
 	}
 
 	@Test
+	/**
+	 * Test the toString of Animals class
+	 */
 	public void testToString() {
 		Animals animalToy = new Animals(1234567899, "GenericName", "GenericBrand", 19.99f, 10, 3, "Plastic", "Medium");
 

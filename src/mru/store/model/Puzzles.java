@@ -1,21 +1,22 @@
 package mru.store.model;
 
 /**
- * 
- * This Class is responsible for dealing with Puzzle toys
+ * The Puzzles class is a subclass of the Toys class and represents a type of
+ * toy that is a puzzle. It contains information such as the serial number,
+ * name, brand, price, stock count, minimum age, and type.
  * 
  * @author Steven and Caesar
  * @version 6.9
  * 
  */
 public class Puzzles extends Toys {
-	private long serialNum;
-	private String name;
-	private String brand;
-	private float price;
-	private int stockCount;
-	private int minAge;
-	private String type;
+	private long serialNum; // Serial Number of Toy
+	private String name; // Name of Toy
+	private String brand; // Brand Name
+	private float price; // Price of Toy
+	private int stockCount; // Availible Stock
+	private int minAge; // Minimum Age
+	private String type; // Type of puzzle
 
 	/**
 	 * Constructor of Puzzle
@@ -163,7 +164,7 @@ public class Puzzles extends Toys {
 	/**
 	 * Sets type of puzzle to user input
 	 * 
-	 * @param setType sets setType
+	 * @param type sets setType
 	 */
 	public void setType(String type) {
 		this.type = type;

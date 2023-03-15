@@ -1,8 +1,8 @@
 package mru.store.testmodel;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import mru.store.model.Figures;
 
@@ -19,6 +19,9 @@ import mru.store.model.Figures;
 public class FiguresTest {
 
 	@Test
+	/**
+	 * Tests the getters of figure class
+	 */
 	public void testConstructorAndGetters() {
 		Figures figure = new Figures(1234567899, "GenericName", "GenericBrand", 19.99f, 10, 3, "Action");
 
@@ -32,6 +35,9 @@ public class FiguresTest {
 	}
 
 	@Test
+	/**
+	 * Test setters of figure class
+	 */
 	public void testSetters() {
 		Figures figure = new Figures(0, null, null, 0, 0, 0, null);
 
@@ -58,6 +64,9 @@ public class FiguresTest {
 	}
 
 	@Test
+	/**
+	 * Test format of figure class
+	 */
 	public void testFormat() {
 		Figures figure = new Figures(1234567899, "GenericName", "GenericBrand", 19.99f, 10, 3, "Action");
 
@@ -66,6 +75,9 @@ public class FiguresTest {
 	}
 
 	@Test
+	/**
+	 * Tests toString of figure class
+	 */
 	public void testToString() {
 		Figures figure = new Figures(1234567899, "GenericName", "GenericBrand", 19.99f, 10, 3, "Action");
 

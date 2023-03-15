@@ -8,7 +8,7 @@ import mru.store.exceptions.MinPlayerException;
  * @version 6.9
  */
 public class AppDriver {
-	public static void main(String[] args) throws MinPlayerException {
+	public static void main(String[] args) throws MinPlayerException { //Main Method of Application
 		new StoreManager();
 	}
 

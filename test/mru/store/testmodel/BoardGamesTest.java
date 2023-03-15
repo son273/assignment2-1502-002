@@ -1,6 +1,6 @@
 package mru.store.testmodel;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,6 +19,9 @@ import mru.store.model.BoardGames;
 public class BoardGamesTest {
 
 	@Test
+	/**
+	 * Test the getters of the BoardGames Class
+	 */
 	public void testConstructorAndGetters() {
 		BoardGames game = new BoardGames(1234567899, "GenericName", "GenericBrand", 19.99f, 10, 3, 2, 6, "Bobby");
 
@@ -35,6 +38,9 @@ public class BoardGamesTest {
 	}
 
 	@Test
+	/**
+	 * Tests setters of BoardGame Class
+	 */
 	public void testSetters() {
 		BoardGames game = new BoardGames(0, null, null, 0, 0, 0, 0, 0, null);
 
@@ -67,6 +73,9 @@ public class BoardGamesTest {
 	}
 
 	@Test
+	/**
+	 * Tests the format of BoardGame Class
+	 */
 	public void testFormat() {
 		BoardGames game = new BoardGames(1234567899, "GenericName", "GenericBrand", 19.99f, 10, 3, 2, 6, "Bobby");
 
@@ -75,6 +84,9 @@ public class BoardGamesTest {
 	}
 
 	@Test
+	/**
+	 * Tests toString Method of BoardGame Class
+	 */
 	public void testToString() {
 		BoardGames game = new BoardGames(1234567899, "GenericName", "GenericBrand", 19.99f, 10, 3, 2, 6, "Bobby");
 

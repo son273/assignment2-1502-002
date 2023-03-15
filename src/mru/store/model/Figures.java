@@ -11,13 +11,13 @@ package mru.store.model;
  */
 public class Figures extends Toys {
 
-	private long serialNum;
-	private String name;
-	private String brand;
-	private float price;
-	private int stockCount;
-	private int minAge;
-	private String classification;
+	private long serialNum; // Serial Number of Toy
+	private String name; // Name of Toy
+	private String brand; // Brand Name
+	private float price; // Price of Toy
+	private int stockCount; // Availible Stock
+	private int minAge; // Minimum Age
+	private String classification; // Classification of Figure toy
 
 	/**
 	 * 
@@ -64,9 +64,9 @@ public class Figures extends Toys {
 	}
 
 	/**
-	 * Sets name to user input
+	 * Returns Name
 	 * 
-	 * @param name sets name
+	 * @return name to user
 	 */
 	@Override
 	public String getName() {
@@ -74,9 +74,9 @@ public class Figures extends Toys {
 	}
 
 	/**
-	 * Returns name
+	 * Sets name to user input
 	 * 
-	 * @return name to user
+	 *@param name sets name
 	 */
 	@Override
 	public void setName(String name) {
@@ -84,9 +84,10 @@ public class Figures extends Toys {
 	}
 
 	/**
-	 * Sets brand to user input
+	 * Returns brand to user
 	 * 
-	 * @param brand sets brand
+	 * @return brand
+	 * 
 	 */
 	@Override
 	public String getBrand() {
@@ -94,9 +95,10 @@ public class Figures extends Toys {
 	}
 
 	/**
-	 * Returns brand to user
+	 * Sets brand to user input
 	 * 
-	 * @return brand
+	 * @param brand sets brand
+	 * 
 	 */
 	@Override
 	public void setBrand(String brand) {
@@ -104,9 +106,9 @@ public class Figures extends Toys {
 	}
 
 	/**
-	 * Sets price to user input
+	 * Returns the price
 	 * 
-	 * @param price sets price
+	 * @return price
 	 */
 	@Override
 	public float getPrice() {
@@ -114,9 +116,9 @@ public class Figures extends Toys {
 	}
 
 	/**
-	 * Returns the price
+	 * Sets price to user input
 	 * 
-	 * @return price
+	 * @param price sets price
 	 */
 	@Override
 	public void setPrice(float price) {
@@ -175,7 +177,7 @@ public class Figures extends Toys {
 	/**
 	 * sets classification based on user input
 	 * 
-	 * @param classification
+	 * @param classification sets the classification of the figure
 	 */
 	public void setClassification(String classification) {
 		this.classification = classification;

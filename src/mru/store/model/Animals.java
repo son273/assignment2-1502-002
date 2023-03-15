@@ -216,7 +216,7 @@ public class Animals extends Toys {
 	public String toString() {
 		return "Category: Animals, " + "Serial Number: " + serialNum + ", Name: " + name + ", Brand: " + brand
 				+ ", Price: " + price + ", Availible Stock: " + stockCount + ", Minimum Age: " + minAge + ", Material: "
-				+ material;
+				+ material + ", Size: " + size;
 	}
 
 }

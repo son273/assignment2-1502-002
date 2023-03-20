@@ -30,6 +30,7 @@ public class Puzzles extends Toys {
 	 * @param type       initializes type of puzzle
 	 */
 	public Puzzles(long serialNum, String name, String brand, float price, int stockCount, int minAge, String type) {
+//		super(serialNum, name, brand, price, stockCount, minAge);
 		this.serialNum = serialNum;
 		this.name = name;
 		this.brand = brand;

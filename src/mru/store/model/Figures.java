@@ -34,6 +34,7 @@ public class Figures extends Toys {
 	 */
 	public Figures(long serialNum, String name, String brand, float price, int stockCount, int minAge,
 			String classification) {
+//		super(serialNum, name, brand, price, stockCount, minAge);
 		this.serialNum = serialNum;
 		this.name = name;
 		this.brand = brand;

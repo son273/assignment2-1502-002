@@ -35,6 +35,7 @@ public class BoardGames extends Toys {
 	 */
 	public BoardGames(long serialNum, String name, String brand, float price, int stockCount, int minAge,
 			int minNumOfPlayers, int maxNumOfPlayers, String designers) {
+//		super(serialNum, name, brand, price, stockCount, minAge);
 		this.serialNum = serialNum;
 		this.name = name;
 		this.brand = brand;

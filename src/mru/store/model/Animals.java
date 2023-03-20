@@ -11,12 +11,7 @@ package mru.store.model;
 
 public class Animals extends Toys {
 
-	private long serialNum; // Serial Number of Toy
-	private String name; // Name of Toy
-	private String brand; // Brand Name
-	private float price; // Price of Toy
-	private int stockCount; // Availible Stock
-	private int minAge; // Minimum Age
+	
 	private String material; // Material of toy
 	private String size; // Size of toy
 
@@ -32,8 +27,10 @@ public class Animals extends Toys {
 	 * @param material   the material that the animal toy is made of
 	 * @param size       the size of the animal toy
 	 */
+	
 	public Animals(long serialNum, String name, String brand, float price, int stockCount, int minAge, String material,
 			String size) {
+//		super(serialNum, name, brand, price, stockCount, minAge);
 		this.serialNum = serialNum;
 		this.name = name;
 		this.brand = brand;

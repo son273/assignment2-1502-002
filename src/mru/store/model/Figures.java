@@ -11,12 +11,6 @@ package mru.store.model;
  */
 public class Figures extends Toys {
 
-	private long serialNum; // Serial Number of Toy
-	private String name; // Name of Toy
-	private String brand; // Brand Name
-	private float price; // Price of Toy
-	private int stockCount; // Availible Stock
-	private int minAge; // Minimum Age
 	private String classification; // Classification of Figure toy
 
 	/**
@@ -35,135 +29,8 @@ public class Figures extends Toys {
 	public Figures(long serialNum, String name, String brand, float price, int stockCount, int minAge,
 			String classification) {
 //		super(serialNum, name, brand, price, stockCount, minAge);
-		this.serialNum = serialNum;
-		this.name = name;
-		this.brand = brand;
-		this.price = price;
-		this.stockCount = stockCount;
-		this.minAge = minAge;
+		super(serialNum, name, brand, price, stockCount, minAge);
 		this.classification = classification;
-	}
-
-	/**
-	 * Sets the serial number to user input
-	 * 
-	 * @param serialNum sets serial number
-	 */
-	@Override
-	public void setSerialNumber(long serialNum) {
-		this.serialNum = serialNum;
-	}
-
-	/**
-	 * Returns the current serial number
-	 * 
-	 * @return serialNum
-	 */
-	@Override
-	public long getSerialNumber() {
-		return serialNum;
-	}
-
-	/**
-	 * Returns Name
-	 * 
-	 * @return name to user
-	 */
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * Sets name to user input
-	 * 
-	 *@param name sets name
-	 */
-	@Override
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * Returns brand to user
-	 * 
-	 * @return brand
-	 * 
-	 */
-	@Override
-	public String getBrand() {
-		return brand;
-	}
-
-	/**
-	 * Sets brand to user input
-	 * 
-	 * @param brand sets brand
-	 * 
-	 */
-	@Override
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-
-	/**
-	 * Returns the price
-	 * 
-	 * @return price
-	 */
-	@Override
-	public float getPrice() {
-		return price;
-	}
-
-	/**
-	 * Sets price to user input
-	 * 
-	 * @param price sets price
-	 */
-	@Override
-	public void setPrice(float price) {
-		this.price = price;
-	}
-
-	/**
-	 * Sets stockCount to user input
-	 * 
-	 * @param stockCount sets stockCount
-	 */
-	@Override
-	public void setAvalibleCount(int stockCount) {
-		this.stockCount = stockCount;
-	}
-
-	/**
-	 * Returns the stock count
-	 * 
-	 * @return stockCount
-	 */
-	@Override
-	public int getAvalibleCount() {
-		return stockCount;
-	}
-
-	/**
-	 * Sets minAge to user input
-	 * 
-	 * @param minAge sets minAge
-	 */
-	@Override
-	public void setAgeAppropriate(int minAge) {
-		this.minAge = minAge;
-	}
-
-	/**
-	 * Returns the min age
-	 * 
-	 * @return minAge
-	 */
-	@Override
-	public int getAgeAppropriate() {
-		return minAge;
 	}
 
 	/**

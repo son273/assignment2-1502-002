@@ -17,9 +17,7 @@ public abstract class Toys {
 	protected float price; // Price of Toy
 	protected int stockCount; // Availible Stock
 	protected int minAge; // Minimum Age
-	
-	
-	
+
 //	public Toys(){
 //		serialNum = 0;
 //		name="";
@@ -29,7 +27,7 @@ public abstract class Toys {
 //		minAge = 0;
 //	}
 //	
-	
+
 //	public Toys(long serialNum, String name, String brand, float price, int stockCount, int minAge){
 //		this.serialNum = serialNum;
 //		this.name = name;
@@ -39,101 +37,66 @@ public abstract class Toys {
 //		this.minAge = minAge;
 //	}
 //	
-	
-	
-	
-	
-	
-	
-	/**
-	 * Sets the serial number of the toy.
-	 * 
-	 * @param serialNum the serial number of the toy.
-	 */
-	public abstract void setSerialNumber(long serialNum);
 
-	/**
-	 * Gets the serial number of the toy.
-	 * 
-	 * @return the serial number of the toy.
-	 */
-	public abstract long getSerialNumber();
+	public Toys(long serialNum, String name, String brand, float price, int stockCount, int minAge) {
+		this.serialNum = serialNum;
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.stockCount = stockCount;
+		this.minAge = minAge;
+	}
 
-	/**
-	 * Sets the name of the toy.
-	 * 
-	 * @param name the name of the toy.
-	 */
-	public abstract void setName(String name);
+	public void setSerialNumber(long serialNum) {
+		this.serialNum = serialNum;
+	}
 
-	/**
-	 * Gets the name of the toy.
-	 * 
-	 * @return the name of the toy.
-	 */
-	public abstract String getName();
+	public long getSerialNumber() {
+		return serialNum;
 
-	/**
-	 * Sets the brand of the toy.
-	 * 
-	 * @param brand the brand of the toy.
-	 */
-	public abstract void setBrand(String brand);
+	}
 
-	/**
-	 * Gets the brand of the toy.
-	 * 
-	 * @return the brand of the toy.
-	 */
-	public abstract String getBrand();
+	public void setName(String name) {
+		this.name = name;
+	}
 
-	/**
-	 * Sets the price of the toy.
-	 * 
-	 * @param price the price of the toy.
-	 */
-	public abstract void setPrice(float price);
+	public String getName() {
+		return name;
+	}
 
-	/**
-	 * Gets the price of the toy.
-	 * 
-	 * @return the price of the toy.
-	 */
-	public abstract float getPrice();
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
 
-	/**
-	 * Sets the available count of the toy.
-	 * 
-	 * @param stockCount the available count of the toy.
-	 */
-	public abstract void setAvalibleCount(int stockCount);
+	public String getBrand() {
+		return brand;
+	}
 
-	/**
-	 * Gets the available count of the toy.
-	 * 
-	 * @return the available count of the toy.
-	 */
-	public abstract int getAvalibleCount();
+	public void setPrice(float price) {
+		this.price = price;
+	}
 
-	/**
-	 * Sets the minimum age appropriate for the toy.
-	 * 
-	 * @param minAge the minimum age appropriate for the toy.
-	 */
-	public abstract void setAgeAppropriate(int minAge);
+	public float getPrice() {
+		return price;
+	}
 
-	/**
-	 * Gets the minimum age appropriate for the toy.
-	 * 
-	 * @return the minimum age appropriate for the toy.
-	 */
-	public abstract int getAgeAppropriate();
+	public void setAvalibleCount(int stockCount) {
+		this.stockCount = stockCount;
+	}
 
-	/**
-	 * Formats the toy information as a string.
-	 * 
-	 * @return the formatted string.
-	 */
+	public int getAvalibleCount() {
+		return stockCount;
+	}
+
+	public void setAgeAppropriate(int minAge) {
+		this.minAge = minAge;
+	}
+
+	public int getAgeAppropriate() {
+		return minAge;
+
+	}
+
 	public abstract String format();
 
 	/**

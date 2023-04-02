@@ -11,7 +11,6 @@ package mru.store.model;
 
 public class Animals extends Toys {
 
-	
 	private String material; // Material of toy
 	private String size; // Size of toy
 
@@ -27,136 +26,13 @@ public class Animals extends Toys {
 	 * @param material   the material that the animal toy is made of
 	 * @param size       the size of the animal toy
 	 */
-	
+
 	public Animals(long serialNum, String name, String brand, float price, int stockCount, int minAge, String material,
 			String size) {
 //		super(serialNum, name, brand, price, stockCount, minAge);
-		this.serialNum = serialNum;
-		this.name = name;
-		this.brand = brand;
-		this.price = price;
-		this.stockCount = stockCount;
-		this.minAge = minAge;
+		super(serialNum, name, brand, price, stockCount, minAge);
 		this.material = material;
 		this.size = size;
-	}
-
-	/**
-	 * Sets the serial number to user input
-	 * 
-	 * @param serialNum sets serial number
-	 */
-	@Override
-	public void setSerialNumber(long serialNum) {
-		this.serialNum = serialNum;
-	}
-
-	/**
-	 * Returns the current serial number
-	 * 
-	 * @return serialNum
-	 */
-	@Override
-	public long getSerialNumber() {
-		return serialNum;
-	}
-
-	/**
-	 * Return Name
-	 * @return name
-	 * 
-	 */
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * Sets name
-	 * @param name sets name
-	 * 
-	 */
-	@Override
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * Returns brand to user
-	 * @return brand
-	 */
-	@Override
-	public String getBrand() {
-		return brand;
-	}
-
-	/**
-	 * Sets brand to user input
-	 * @param brand sets brand
-	 */
-	@Override
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-
-	/**
-	 * Return Price
-	 * 
-	 * @return price 
-	 */
-	@Override
-	public float getPrice() {
-		return price;
-	}
-
-	/**
-	 * Sets the price
-	 * 
-	 * @param price sets price
-	 */
-	@Override
-	public void setPrice(float price) {
-		this.price = price;
-	}
-
-	/**
-	 * Sets stockCount to user input
-	 * 
-	 * @param stockCount sets stockCount
-	 */
-	@Override
-	public void setAvalibleCount(int stockCount) {
-		this.stockCount = stockCount;
-	}
-
-	/**
-	 * Returns the stock count
-	 * 
-	 * @return stockCount
-	 */
-	@Override
-	public int getAvalibleCount() {
-		return stockCount;
-	}
-
-	/**
-	 * Sets minAge to user input
-	 * 
-	 * @param minAge sets minAge
-	 */
-	@Override
-	public void setAgeAppropriate(int minAge) {
-		this.minAge = minAge;
-	}
-
-	/**
-	 * Returns the min age
-	 * 
-	 * @return minAge
-	 */
-	@Override
-	public int getAgeAppropriate() {
-		return minAge;
 	}
 
 	/**
